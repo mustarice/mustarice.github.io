@@ -11,11 +11,11 @@
     <!-- Custom CSS -->
     <style>
         body {
-            background-color: #121212;
+            background-color: #1a1a1a;
             color: #e0e0e0;
         }
         .navbar {
-            background-color: #1f2937;
+            background-color: #2c2c2c;
         }
         .hero-bg {
             background: url('https://via.placeholder.com/1920x600') center center/cover no-repeat;
@@ -29,11 +29,8 @@
             background-color: #4f46e5;
             border-color: #4f46e5;
         }
-        .feature-card, .category-card, .blog-card, .gallery-card {
-            background-color: #1f2937;
-        }
-        .footer {
-            background-color: #1f2937;
+        .card-bg, .footer-bg {
+            background-color: #2c2c2c;
         }
     </style>
 </head>
@@ -66,28 +63,19 @@
         </div>
     </section>
 
-    <!-- Promotional Banner -->
-    <section class="bg-blue-600 py-10">
-        <div class="container mx-auto text-center text-white">
-            <h2 class="text-3xl font-bold">Exclusive Offer: 50% Off on All Products!</h2>
-            <p class="mt-2">Limited time offer. Hurry up and grab your favorite digital products now!</p>
-            <a href="#" class="mt-6 inline-block btn btn-light text-blue-600 px-6 py-3 rounded-full">Shop Now</a>
-        </div>
-    </section>
-
     <!-- Features Section -->
     <section class="container mx-auto my-10 text-center">
         <h2 class="text-3xl font-bold text-white">Why Choose Us</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
-            <div class="feature-card p-6 rounded-lg shadow-md">
+            <div class="card-bg p-6 rounded-lg shadow-md">
                 <h3 class="text-lg font-semibold text-white">Wide Range of Products</h3>
                 <p class="mt-2 text-gray-400">Find everything you need in one place, from software to e-books.</p>
             </div>
-            <div class="feature-card p-6 rounded-lg shadow-md">
+            <div class="card-bg p-6 rounded-lg shadow-md">
                 <h3 class="text-lg font-semibold text-white">Secure Payment</h3>
                 <p class="mt-2 text-gray-400">Your transactions are safe with our encrypted payment gateways.</p>
             </div>
-            <div class="feature-card p-6 rounded-lg shadow-md">
+            <div class="card-bg p-6 rounded-lg shadow-md">
                 <h3 class="text-lg font-semibold text-white">24/7 Support</h3>
                 <p class="mt-2 text-gray-400">Our team is here to help you anytime, anywhere.</p>
             </div>
@@ -98,19 +86,19 @@
     <section class="container mx-auto my-10 text-center">
         <h2 class="text-3xl font-bold text-white">Explore Our Categories</h2>
         <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mt-10">
-            <div class="category-card p-6 rounded-lg shadow-md">
+            <div class="card-bg p-6 rounded-lg shadow-md">
                 <img src="https://via.placeholder.com/150" alt="Category Image" class="w-full h-48 object-cover rounded">
                 <h3 class="text-lg font-semibold text-white mt-4">Software</h3>
             </div>
-            <div class="category-card p-6 rounded-lg shadow-md">
+            <div class="card-bg p-6 rounded-lg shadow-md">
                 <img src="https://via.placeholder.com/150" alt="Category Image" class="w-full h-48 object-cover rounded">
                 <h3 class="text-lg font-semibold text-white mt-4">E-Books</h3>
             </div>
-            <div class="category-card p-6 rounded-lg shadow-md">
+            <div class="card-bg p-6 rounded-lg shadow-md">
                 <img src="https://via.placeholder.com/150" alt="Category Image" class="w-full h-48 object-cover rounded">
                 <h3 class="text-lg font-semibold text-white mt-4">Games</h3>
             </div>
-            <div class="category-card p-6 rounded-lg shadow-md">
+            <div class="card-bg p-6 rounded-lg shadow-md">
                 <img src="https://via.placeholder.com/150" alt="Category Image" class="w-full h-48 object-cover rounded">
                 <h3 class="text-lg font-semibold text-white mt-4">Courses</h3>
             </div>
@@ -121,13 +109,13 @@
     <section class="container mx-auto my-10 text-center">
         <h2 class="text-3xl font-bold text-white">Our Gallery</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
-            <div class="gallery-card p-6 rounded-lg shadow-md">
+            <div class="card-bg p-6 rounded-lg shadow-md">
                 <img src="https://via.placeholder.com/300" alt="Gallery Image" class="w-full h-64 object-cover rounded">
             </div>
-            <div class="gallery-card p-6 rounded-lg shadow-md">
+            <div class="card-bg p-6 rounded-lg shadow-md">
                 <img src="https://via.placeholder.com/300" alt="Gallery Image" class="w-full h-64 object-cover rounded">
             </div>
-            <div class="gallery-card p-6 rounded-lg shadow-md">
+            <div class="card-bg p-6 rounded-lg shadow-md">
                 <img src="https://via.placeholder.com/300" alt="Gallery Image" class="w-full h-64 object-cover rounded">
             </div>
         </div>
@@ -165,5 +153,59 @@
     </section>
 
     <!-- Blog Section -->
+    <section class="container mx-auto my-10 text-center">
+        <h2 class="text-3xl font-bold text-white">Latest From Our Blog</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+            <div class="card-bg p-6 rounded-lg shadow-md">
+                <img src="https://via.placeholder.com/300" alt="Blog Image" class="w-full h-48 object-cover rounded">
+                <h3 class="text-lg font-semibold text-white mt-4">Blog Post 1</h3>
+                <p class="mt-2 text-gray-400">Short excerpt from the blog post.</p>
+                <a href="#" class="mt-4 inline-block text-blue-500 hover:text-blue-700">Read More</a>
+            </div>
+            <div class="card-bg p-6 rounded-lg shadow-md">
+                <img src="https://via.placeholder.com/300" alt="Blog Image" class="w-full h-48 object-cover rounded">
+                <h3 class="text-lg font-semibold text-white mt-4">Blog Post 2</h3>
+                <p class="mt-2 text-gray-400">Short excerpt from the blog post.</p>
+                <a href="#" class="mt-4 inline-block text-blue-500 hover:text-blue-700">Read More</a>
+            </div>
+            <div class="card-bg p-6 rounded-lg shadow-md">
+                <img src="https://via.placeholder.com/300" alt="Blog Image" class="w-full h-48 object-cover rounded">
+                <h3 class="text-lg font-semibold text-white mt-4">Blog Post 3</h3>
+                <p class="mt-2 text-gray-400">Short excerpt from the blog post.</p>
+                <a href="#" class="mt-4 inline-block text-blue-500 hover:text-blue-700">Read More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="bg-gray-800 py-10">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold text-white">Join Our Newsletter</h2>
+            <p class="mt-2 text-gray-400">Stay updated with our latest products and offers.</p>
+            <form class="mt-6">
+                <div class="flex justify-center">
+                    <input type="email" placeholder="Enter your email" class="w-1/2 p-3 rounded-l-lg bg-gray-700 text-white placeholder-gray-500">
+                    <button type="submit" class="p-3 bg-blue-500 text-white rounded-r-lg hover:bg-blue-600">Subscribe</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-bg py-6 mt-10">
+        <div class="container mx-auto text-center text-gray-400">
+            <p>© 2024 netshop.id. All rights reserved.</p>
+            <p>Follow us on:
+                <a href="#" class="text-blue-500 hover:text-blue-700">Facebook</a>,
+                <a href="#" class="text-blue-500 hover:text-blue-700">Twitter</a>,
+                <a href="#" class="text-blue-500 hover:text-blue-700">Instagram</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
