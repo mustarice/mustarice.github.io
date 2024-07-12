@@ -8,63 +8,160 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Chakra UI -->
-    <script src="https://unpkg.com/@chakra-ui/react@latest/dist/chakra-ui-react.umd.production.min.js"></script>
+    <!-- Custom CSS -->
+    <style>
+        .hero-bg {
+            background: url('https://via.placeholder.com/1920x600') center center/cover no-repeat;
+            height: 600px;
+        }
+        body {
+            background-color: #1a202c;
+            color: #cbd5e0;
+        }
+        .text-primary {
+            color: #63b3ed;
+        }
+        .bg-primary {
+            background-color: #2d3748;
+        }
+        .btn-primary {
+            background-color: #63b3ed;
+            border-color: #63b3ed;
+        }
+        .btn-primary:hover {
+            background-color: #4299e1;
+            border-color: #4299e1;
+        }
+    </style>
 </head>
-<body class="bg-gray-100 font-sans">
-    <header class="bg-white shadow-md">
+<body class="font-sans">
+    <header class="bg-primary shadow-md">
         <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <a href="#" class="text-xl font-bold text-gray-800">netshop.id</a>
+            <a href="#" class="text-2xl font-bold text-white">netshop.id</a>
             <nav class="flex items-center space-x-4">
-                <a href="#" class="text-gray-800 hover:text-gray-600">Home</a>
-                <a href="#" class="text-gray-800 hover:text-gray-600">Shop</a>
-                <a href="#" class="text-gray-800 hover:text-gray-600">About</a>
-                <a href="#" class="text-gray-800 hover:text-gray-600">Contact</a>
+                <a href="#" class="text-white hover:text-gray-400">Home</a>
+                <a href="#" class="text-white hover:text-gray-400">Shop</a>
+                <a href="#" class="text-white hover:text-gray-400">About</a>
+                <a href="#" class="text-white hover:text-gray-400">Contact</a>
             </nav>
         </div>
     </header>
 
-    <main class="container mx-auto my-10">
-        <div class="text-center">
-            <h1 class="text-4xl font-bold text-gray-800">Welcome to netshop.id</h1>
-            <p class="mt-4 text-gray-600">Your one-stop shop for digital products</p>
+    <!-- Hero Section -->
+    <section class="hero-bg flex items-center justify-center text-center text-white">
+        <div>
+            <h1 class="text-5xl font-bold">Welcome to netshop.id</h1>
+            <p class="mt-4 text-xl">Your one-stop shop for digital products</p>
+            <a href="#" class="mt-6 inline-block bg-blue-500 text-white px-6 py-3 rounded-full hover:bg-blue-600">Shop Now</a>
         </div>
+    </section>
 
+    <!-- Features Section -->
+    <section class="container mx-auto my-10 text-center">
+        <h2 class="text-3xl font-bold text-white">Why Choose Us</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+            <div class="bg-primary p-6 rounded-lg shadow-md">
+                <h3 class="text-lg font-semibold text-white">Wide Range of Products</h3>
+                <p class="mt-2 text-gray-400">Find everything you need in one place, from software to e-books.</p>
+            </div>
+            <div class="bg-primary p-6 rounded-lg shadow-md">
+                <h3 class="text-lg font-semibold text-white">Secure Payment</h3>
+                <p class="mt-2 text-gray-400">Your transactions are safe with our encrypted payment gateways.</p>
+            </div>
+            <div class="bg-primary p-6 rounded-lg shadow-md">
+                <h3 class="text-lg font-semibold text-white">24/7 Support</h3>
+                <p class="mt-2 text-gray-400">Our team is here to help you anytime, anywhere.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Preview Section -->
+    <section class="container mx-auto my-10 text-center">
+        <h2 class="text-3xl font-bold text-white">Featured Products</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
             <!-- Example Product Card -->
-            <div class="bg-white p-6 rounded-lg shadow-md">
+            <div class="bg-primary p-6 rounded-lg shadow-md">
                 <img src="https://via.placeholder.com/150" alt="Product Image" class="w-full h-48 object-cover rounded">
-                <h2 class="text-lg font-semibold text-gray-800 mt-4">Product 1</h2>
-                <p class="text-gray-600 mt-2">Short description of the product.</p>
-                <button class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Buy Now</button>
+                <h3 class="text-lg font-semibold text-white mt-4">Product 1</h3>
+                <p class="mt-2 text-gray-400">Short description of the product.</p>
+                <button class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">View Details</button>
             </div>
-
-            <!-- Repeat the above card for more products -->
+            <div class="bg-primary p-6 rounded-lg shadow-md">
+                <img src="https://via.placeholder.com/150" alt="Product Image" class="w-full h-48 object-cover rounded">
+                <h3 class="text-lg font-semibold text-white mt-4">Product 2</h3>
+                <p class="mt-2 text-gray-400">Short description of the product.</p>
+                <button class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">View Details</button>
+            </div>
+            <div class="bg-primary p-6 rounded-lg shadow-md">
+                <img src="https://via.placeholder.com/150" alt="Product Image" class="w-full h-48 object-cover rounded">
+                <h3 class="text-lg font-semibold text-white mt-4">Product 3</h3>
+                <p class="mt-2 text-gray-400">Short description of the product.</p>
+                <button class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">View Details</button>
+            </div>
         </div>
-    </main>
+    </section>
 
-    <footer class="bg-white py-6 mt-10">
-        <div class="container mx-auto text-center text-gray-600">
-            © 2024 netshop.id. All rights reserved.
+    <!-- Testimonials Section -->
+    <section class="bg-primary py-10">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold text-white">What Our Customers Say</h2>
+            <div class="carousel slide mt-10" id="testimonials" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <p class="text-xl text-gray-400">"Great service and amazing products! Highly recommend netshop.id!"</p>
+                        <p class="mt-2 text-gray-600">- John Doe</p>
+                    </div>
+                    <div class="carousel-item">
+                        <p class="text-xl text-gray-400">"Fantastic customer support and quick delivery!"</p>
+                        <p class="mt-2 text-gray-600">- Jane Smith</p>
+                    </div>
+                    <div class="carousel-item">
+                        <p class="text-xl text-gray-400">"Wide range of products and easy to navigate website."</p>
+                        <p class="mt-2 text-gray-600">- Robert Brown</p>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#testimonials" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#testimonials" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="bg-gray-800 py-10">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold text-white">Join Our Newsletter</h2>
+            <p class="mt-2 text-gray-400">Stay updated with our latest products and offers.</p>
+            <form class="mt-6">
+                <div class="flex justify-center">
+                    <input type="email" placeholder="Enter your email" class="w-1/2 p-3 rounded-l-lg bg-gray-700 text-white placeholder-gray-500">
+                    <button type="submit" class="p-3 bg-blue-500 text-white rounded-r-lg hover:bg-blue-600">Subscribe</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary py-6 mt-10">
+        <div class="container mx-auto text-center text-gray-400">
+            <p>© 2024 netshop.id. All rights reserved.</p>
+            <p>Follow us on:
+                <a href="#" class="text-blue-500 hover:text-blue-700">Facebook</a>,
+                <a href="#" class="text-blue-500 hover:text-blue-700">Twitter</a>,
+                <a href="#" class="text-blue-500 hover:text-blue-700">Instagram</a>
+            </p>
         </div>
     </footer>
 
     <!-- Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <!-- Chakra UI -->
-    <script>
-        const { ChakraProvider, Box, Button } = window["@chakra-ui/react"];
-        function App() {
-            return (
-                <ChakraProvider>
-                    <Box p={5}>
-                        <Button colorScheme="blue">Chakra Button</Button>
-                    </Box>
-                </ChakraProvider>
-            );
-        }
-    </script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </body>
 </html>
