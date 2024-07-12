@@ -10,41 +10,51 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <style>
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+        .navbar {
+            background-color: #1f2937;
+        }
         .hero-bg {
             background: url('https://via.placeholder.com/1920x600') center center/cover no-repeat;
             height: 600px;
         }
-        body {
-            background-color: #1a202c;
-            color: #cbd5e0;
-        }
-        .text-primary {
-            color: #63b3ed;
-        }
-        .bg-primary {
-            background-color: #2d3748;
-        }
         .btn-primary {
-            background-color: #63b3ed;
-            border-color: #63b3ed;
+            background-color: #6366f1;
+            border-color: #6366f1;
         }
         .btn-primary:hover {
-            background-color: #4299e1;
-            border-color: #4299e1;
+            background-color: #4f46e5;
+            border-color: #4f46e5;
+        }
+        .feature-card, .category-card, .blog-card, .gallery-card {
+            background-color: #1f2937;
+        }
+        .footer {
+            background-color: #1f2937;
         }
     </style>
 </head>
 <body class="font-sans">
-    <header class="bg-primary shadow-md">
-        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-white">netshop.id</a>
-            <nav class="flex items-center space-x-4">
-                <a href="#" class="text-white hover:text-gray-400">Home</a>
-                <a href="#" class="text-white hover:text-gray-400">Shop</a>
-                <a href="#" class="text-white hover:text-gray-400">About</a>
-                <a href="#" class="text-white hover:text-gray-400">Contact</a>
-            </nav>
-        </div>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark shadow-md">
+            <div class="container">
+                <a class="navbar-brand text-2xl font-bold" href="#">netshop.id</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Shop</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </header>
 
     <!-- Hero Section -->
@@ -52,7 +62,7 @@
         <div>
             <h1 class="text-5xl font-bold">Welcome to netshop.id</h1>
             <p class="mt-4 text-xl">Your one-stop shop for digital products</p>
-            <a href="#" class="mt-6 inline-block bg-blue-500 text-white px-6 py-3 rounded-full hover:bg-blue-600">Shop Now</a>
+            <a href="#" class="mt-6 inline-block btn btn-primary text-white px-6 py-3 rounded-full">Shop Now</a>
         </div>
     </section>
 
@@ -61,7 +71,7 @@
         <div class="container mx-auto text-center text-white">
             <h2 class="text-3xl font-bold">Exclusive Offer: 50% Off on All Products!</h2>
             <p class="mt-2">Limited time offer. Hurry up and grab your favorite digital products now!</p>
-            <a href="#" class="mt-6 inline-block bg-white text-blue-600 px-6 py-3 rounded-full hover:bg-gray-200">Shop Now</a>
+            <a href="#" class="mt-6 inline-block btn btn-light text-blue-600 px-6 py-3 rounded-full">Shop Now</a>
         </div>
     </section>
 
@@ -69,15 +79,15 @@
     <section class="container mx-auto my-10 text-center">
         <h2 class="text-3xl font-bold text-white">Why Choose Us</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
-            <div class="bg-primary p-6 rounded-lg shadow-md">
+            <div class="feature-card p-6 rounded-lg shadow-md">
                 <h3 class="text-lg font-semibold text-white">Wide Range of Products</h3>
                 <p class="mt-2 text-gray-400">Find everything you need in one place, from software to e-books.</p>
             </div>
-            <div class="bg-primary p-6 rounded-lg shadow-md">
+            <div class="feature-card p-6 rounded-lg shadow-md">
                 <h3 class="text-lg font-semibold text-white">Secure Payment</h3>
                 <p class="mt-2 text-gray-400">Your transactions are safe with our encrypted payment gateways.</p>
             </div>
-            <div class="bg-primary p-6 rounded-lg shadow-md">
+            <div class="feature-card p-6 rounded-lg shadow-md">
                 <h3 class="text-lg font-semibold text-white">24/7 Support</h3>
                 <p class="mt-2 text-gray-400">Our team is here to help you anytime, anywhere.</p>
             </div>
@@ -88,19 +98,19 @@
     <section class="container mx-auto my-10 text-center">
         <h2 class="text-3xl font-bold text-white">Explore Our Categories</h2>
         <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mt-10">
-            <div class="bg-primary p-6 rounded-lg shadow-md">
+            <div class="category-card p-6 rounded-lg shadow-md">
                 <img src="https://via.placeholder.com/150" alt="Category Image" class="w-full h-48 object-cover rounded">
                 <h3 class="text-lg font-semibold text-white mt-4">Software</h3>
             </div>
-            <div class="bg-primary p-6 rounded-lg shadow-md">
+            <div class="category-card p-6 rounded-lg shadow-md">
                 <img src="https://via.placeholder.com/150" alt="Category Image" class="w-full h-48 object-cover rounded">
                 <h3 class="text-lg font-semibold text-white mt-4">E-Books</h3>
             </div>
-            <div class="bg-primary p-6 rounded-lg shadow-md">
+            <div class="category-card p-6 rounded-lg shadow-md">
                 <img src="https://via.placeholder.com/150" alt="Category Image" class="w-full h-48 object-cover rounded">
                 <h3 class="text-lg font-semibold text-white mt-4">Games</h3>
             </div>
-            <div class="bg-primary p-6 rounded-lg shadow-md">
+            <div class="category-card p-6 rounded-lg shadow-md">
                 <img src="https://via.placeholder.com/150" alt="Category Image" class="w-full h-48 object-cover rounded">
                 <h3 class="text-lg font-semibold text-white mt-4">Courses</h3>
             </div>
@@ -111,13 +121,13 @@
     <section class="container mx-auto my-10 text-center">
         <h2 class="text-3xl font-bold text-white">Our Gallery</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
-            <div class="bg-primary p-6 rounded-lg shadow-md">
+            <div class="gallery-card p-6 rounded-lg shadow-md">
                 <img src="https://via.placeholder.com/300" alt="Gallery Image" class="w-full h-64 object-cover rounded">
             </div>
-            <div class="bg-primary p-6 rounded-lg shadow-md">
+            <div class="gallery-card p-6 rounded-lg shadow-md">
                 <img src="https://via.placeholder.com/300" alt="Gallery Image" class="w-full h-64 object-cover rounded">
             </div>
-            <div class="bg-primary p-6 rounded-lg shadow-md">
+            <div class="gallery-card p-6 rounded-lg shadow-md">
                 <img src="https://via.placeholder.com/300" alt="Gallery Image" class="w-full h-64 object-cover rounded">
             </div>
         </div>
@@ -127,7 +137,7 @@
     <section class="bg-primary py-10">
         <div class="container mx-auto text-center">
             <h2 class="text-3xl font-bold text-white">What Our Customers Say</h2>
-            <div class="carousel slide mt-10" id="testimonials" data-ride="carousel">
+            <div id="testimonials" class="carousel slide mt-10" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <p class="text-xl text-gray-400">"Great service and amazing products! Highly recommend netshop.id!"</p>
@@ -155,59 +165,5 @@
     </section>
 
     <!-- Blog Section -->
-    <section class="container mx-auto my-10 text-center">
-        <h2 class="text-3xl font-bold text-white">Latest From Our Blog</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
-            <div class="bg-primary p-6 rounded-lg shadow-md">
-                <img src="https://via.placeholder.com/300" alt="Blog Image" class="w-full h-48 object-cover rounded">
-                <h3 class="text-lg font-semibold text-white mt-4">Blog Post 1</h3>
-                <p class="mt-2 text-gray-400">Short excerpt from the blog post.</p>
-                <a href="#" class="mt-4 inline-block text-blue-500 hover:text-blue-700">Read More</a>
-            </div>
-            <div class="bg-primary p-6 rounded-lg shadow-md">
-                <img src="https://via.placeholder.com/300" alt="Blog Image" class="w-full h-48 object-cover rounded">
-                <h3 class="text-lg font-semibold text-white mt-4">Blog Post 2</h3>
-                <p class="mt-2 text-gray-400">Short excerpt from the blog post.</p>
-                <a href="#" class="mt-4 inline-block text-blue-500 hover:text-blue-700">Read More</a>
-            </div>
-            <div class="bg-primary p-6 rounded-lg shadow-md">
-                <img src="https://via.placeholder.com/300" alt="Blog Image" class="w-full h-48 object-cover rounded">
-                <h3 class="text-lg font-semibold text-white mt-4">Blog Post 3</h3>
-                <p class="mt-2 text-gray-400">Short excerpt from the blog post.</p>
-                <a href="#" class="mt-4 inline-block text-blue-500 hover:text-blue-700">Read More</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Newsletter Section -->
-    <section class="bg-gray-800 py-10">
-        <div class="container mx-auto text-center">
-            <h2 class="text-3xl font-bold text-white">Join Our Newsletter</h2>
-            <p class="mt-2 text-gray-400">Stay updated with our latest products and offers.</p>
-            <form class="mt-6">
-                <div class="flex justify-center">
-                    <input type="email" placeholder="Enter your email" class="w-1/2 p-3 rounded-l-lg bg-gray-700 text-white placeholder-gray-500">
-                    <button type="submit" class="p-3 bg-blue-500 text-white rounded-r-lg hover:bg-blue-600">Subscribe</button>
-                </div>
-            </form>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-primary py-6 mt-10">
-        <div class="container mx-auto text-center text-gray-400">
-            <p>© 2024 netshop.id. All rights reserved.</p>
-            <p>Follow us on:
-                <a href="#" class="text-blue-500 hover:text-blue-700">Facebook</a>,
-                <a href="#" class="text-blue-500 hover:text-blue-700">Twitter</a>,
-                <a href="#" class="text-blue-500 hover:text-blue-700">Instagram</a>
-            </p>
-        </div>
-    </footer>
-
-    <!-- Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
