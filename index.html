@@ -30,25 +30,41 @@
             font-size: 1.25rem;
             margin-top: 1.5rem;
         }
-        .loader {
-            border: 6px solid rgba(255, 255, 255, 0.3);
+        .wave-loader {
+            position: relative;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
-            border-top: 6px solid #6366f1;
-            width: 50px;
-            height: 50px;
-            animation: spin 1s linear infinite;
-            margin: 2rem auto;
+            border: 10px solid transparent;
+            border-top-color: #6366f1;
+            animation: spin 1.5s linear infinite;
+        }
+        .wave-loader::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border-radius: 50%;
+            border: 10px solid transparent;
+            border-top-color: #9f9f9f;
+            animation: spin-reverse 2s linear infinite;
         }
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
+        }
+        @keyframes spin-reverse {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(-360deg); }
         }
     </style>
 </head>
 <body>
     <div class="maintenance-content">
         <h1>Under Maintenance</h1>
-        <div class="loader"></div>
+        <div class="wave-loader"></div>
         <p>We are currently performing scheduled maintenance.<br>Please check back later.</p>
     </div>
 </body>
