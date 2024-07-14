@@ -57,6 +57,54 @@
             font-size: 0.875rem;
             margin-left: 0.5rem;
         }
+        .announcement-popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #2c2c2c;
+            padding: 2rem;
+            border-radius: 0.375rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: none;
+        }
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            display: none;
+        }
+        .toast {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            background-color: #dc3545;
+            color: #fff;
+            padding: 1rem;
+            border-radius: 0.375rem;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1050;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .toast-icon {
+            margin-right: 0.5rem;
+        }
+        .toast-progress {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 5px;
+            background-color: #ffc107;
+            transition: width 3s linear;
+        }
     </style>
 </head>
 <body class="font-sans">
@@ -69,6 +117,11 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="fas fa-exclamation-triangle" onclick="toggleAnnouncementPopup()"></i>
+                            </a>
+                        </li>
                         <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Shop</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">About</a></li>
@@ -94,22 +147,37 @@
                 <div class="mt-6">
                     <p class="text-gray-400">Select Product Type:</p>
                     <div class="mt-2">
-                        <button class="option-btn" onclick="selectOption(this, 'Server Boost ×8 1 Bulan', 'Rp31.018')">Server Boost ×8 1 Bulan <span class="option-price">Rp31.018</span></button>
-                        <button class="option-btn" onclick="selectOption(this, 'Server Boost ×14 1 Bulan', 'Rp51.358')">Server Boost ×14 1 Bulan <span class="option-price">Rp51.358</span></button>
-                        <button class="option-btn" onclick="selectOption(this, 'Server Boost ×14 3 Bulan', 'Rp92.038')">Server Boost ×14 3 Bulan <span class="option-price">Rp92.038</span></button>
+                        <button class="option-btn" onclick="selectOption(this, 'Server Boost ×8 1 Bulan', 'Rp30.000')">Server Boost ×8 1 Bulan <span class="option-price">Rp30.000</span></button>
+                        <button class="option-btn" onclick="selectOption(this, 'Server Boost ×14 1 Bulan', 'Rp50.000')">Server Boost ×14 1 Bulan <span class="option-price">Rp50.000</span></button>
+                        <button class="option-btn" onclick="selectOption(this, 'Server Boost ×14 3 Bulan', 'Rp90.000')">Server Boost ×14 3 Bulan <span class="option-price">Rp90.000</span></button>
                     </div>
                 </div>
                 <div class="mt-6">
                     <button class="btn btn-primary text-white px-6 py-3 rounded-full mr-2">
                         <i class="fab fa-discord"></i> Beli di Discord
                     </button>
-                    <button class="btn btn-success text-white px-6 py-3 rounded-full">
+                    <button class="btn btn-success text-white px-6 py-3 rounded-full" onclick="showToast()">
                         <i class="fab fa-whatsapp"></i> Beli di WhatsApp
                     </button>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Announcement Popup -->
+    <div class="popup-overlay" onclick="toggleAnnouncementPopup()"></div>
+    <div class="announcement-popup">
+        <h3 class="text-2xl font-bold text-white">Pengumuman</h3>
+        <p class="mt-4 text-gray-400">Ini adalah informasi penting yang ingin Anda sampaikan kepada pengguna. Informasi ini dapat mencakup pembaruan, berita, atau penawaran spesial.</p>
+        <button class="btn btn-danger mt-4" onclick="toggleAnnouncementPopup()">Tutup</button>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="errorToast">
+        <i class="toast-icon fas fa-exclamation-circle"></i>
+        <span>Terjadi kesalahan, coba lainya atau coba lagi nanti.</span>
+        <div class="toast-progress" id="toastProgress"></div>
+    </div>
 
     <!-- Footer -->
     <footer class="footer-bg py-6 mt-10">
@@ -140,6 +208,32 @@
             // You can also handle the selected type and price here
             console.log('Selected product type:', type);
             console.log('Price:', price);
+        }
+
+        function toggleAnnouncementPopup() {
+            const popup = document.querySelector('.announcement-popup');
+            const overlay = document.querySelector('.popup-overlay');
+            const isVisible = popup.style.display === 'block';
+
+            if (isVisible) {
+                popup.style.display = 'none';
+                overlay.style.display = 'none';
+            } else {
+                popup.style.display = 'block';
+                overlay.style.display = 'block';
+            }
+        }
+
+        function showToast() {
+            const toast = document.getElementById('errorToast');
+            const progress = document.getElementById('toastProgress');
+            toast.style.opacity = 1;
+            progress.style.width = '100%';
+
+            setTimeout(() => {
+                toast.style.opacity = 0;
+                progress.style.width = '0';
+            }, 3000); // 3 seconds duration
         }
     </script>
 </body>
