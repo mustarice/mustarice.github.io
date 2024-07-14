@@ -3,13 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>netshop.id - Product Detail</title>
+    <title>netshop.id - Shop</title>
     <!-- Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Custom CSS -->
     <style>
         body {
@@ -30,55 +28,6 @@
         .card-bg, .footer-bg {
             background-color: #2c2c2c;
         }
-        .product-image {
-            max-width: 100%;
-            height: auto;
-        }
-        .option-btn {
-            border: 1px solid #6366f1;
-            color: #6366f1;
-            background-color: transparent;
-            padding: 0.5rem 1rem;
-            border-radius: 0.375rem;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1rem;
-            transition: background-color 0.3s ease;
-            text-align: left;
-            width: 100%;
-        }
-        .option-btn.selected {
-            background-color: #6366f1;
-            color: #fff;
-        }
-        .option-price {
-            color: #9f9f9f;
-            font-size: 0.875rem;
-            margin-left: 0.5rem;
-        }
-        .announcement-popup {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #2c2c2c;
-            padding: 2rem;
-            border-radius: 0.375rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-            display: none;
-        }
-        .popup-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 999;
-            display: none;
-        }
     </style>
 </head>
 <body class="font-sans">
@@ -91,11 +40,6 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <i class="fas fa-exclamation-triangle" onclick="toggleAnnouncementPopup()"></i>
-                            </a>
-                        </li>
                         <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Shop</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">About</a></li>
@@ -106,45 +50,61 @@
         </nav>
     </header>
 
-    <!-- Product Detail -->
-    <section class="container mx-auto my-10">
-        <div class="flex flex-wrap">
-            <!-- Product Image -->
-            <div class="w-full md:w-1/2 p-4">
-                <img src="https://mustarice.github.io/gd/20240714_211801.jpg" alt="nitro-boost-img" class="product-image rounded-lg shadow-md">
-            </div>
-            <!-- Product Info -->
-            <div class="w-full md:w-1/2 p-4">
-                <h2 class="text-3xl font-bold text-white">Discord Server Boost</h2>
-                <p class="mt-4 text-xl text-gray-400">Rp30.000,00 - Rp90.000,00</p>
-                <p class="mt-4 text-gray-400">This is a detailed description of the product. It covers all the features and benefits of the product, and provides any other relevant information that a customer might need to know before making a purchase.</p>
-                <div class="mt-6">
-                    <p class="text-gray-400">Select Product Type:</p>
-                    <div class="mt-2">
-                        <button class="option-btn" onclick="selectOption(this, 'Server Boost ×8 1 Bulan', 'Rp30.000')">Server Boost ×8 1 Bulan <span class="option-price">Rp30.000</span></button>
-                        <button class="option-btn" onclick="selectOption(this, 'Server Boost ×14 1 Bulan', 'Rp50.000')">Server Boost ×14 1 Bulan <span class="option-price">Rp50.000</span></button>
-                        <button class="option-btn" onclick="selectOption(this, 'Server Boost ×14 3 Bulan', 'Rp90.000')">Server Boost ×14 3 Bulan <span class="option-price">Rp90.000</span></button>
-                    </div>
-                </div>
-                <div class="mt-6">
-                    <button class="btn btn-primary text-white px-6 py-3 rounded-full mr-2">
-                        <i class="fab fa-discord"></i> Beli di Discord
-                    </button>
-                    <button class="btn btn-success text-white px-6 py-3 rounded-full">
-                        <i class="fab fa-whatsapp"></i> Beli di WhatsApp
-                    </button>
-                </div>
-            </div>
+    <!-- Shop Header -->
+    <section class="hero-bg flex items-center justify-center text-center text-white" style="background: url('https://via.placeholder.com/1920x400') center center/cover no-repeat; height: 400px;">
+        <div>
+            <h1 class="text-5xl font-bold">Our Shop</h1>
+            <p class="mt-4 text-xl">Browse through our collection of digital products</p>
         </div>
     </section>
 
-    <!-- Announcement Popup -->
-    <div class="popup-overlay" onclick="toggleAnnouncementPopup()"></div>
-    <div class="announcement-popup">
-        <h3 class="text-2xl font-bold text-white">Pengumuman</h3>
-        <p class="mt-4 text-gray-400">Ini adalah informasi penting yang ingin Anda sampaikan kepada pengguna. Informasi ini dapat mencakup pembaruan, berita, atau penawaran spesial.</p>
-        <button class="btn btn-danger mt-4" onclick="toggleAnnouncementPopup()">Tutup</button>
-    </div>
+    <!-- Search Bar -->
+    <section class="container mx-auto my-10 text-center">
+        <input type="text" id="searchBar" placeholder="Search for products..." class="w-full p-3 rounded-lg bg-gray-700 text-white placeholder-gray-500">
+    </section>
+
+    <!-- Product Listing -->
+    <section class="container mx-auto my-10 text-center">
+        <h2 class="text-3xl font-bold text-white">Our Products</h2>
+        <div id="productGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+            <div class="card-bg p-6 rounded-lg shadow-md product-card" data-name="Discord Server Boost">
+                <img src="https://mustarice.github.io/gd/20240714_211801.jpg" alt="nitro-boost-img" class="w-full h-48 object-cover rounded">
+                <h3 class="text-lg font-semibold text-white mt-4">Discord Server Boost</h3>
+                <p class="mt-2 text-gray-400">Rp30.000</p>
+                <a href="nitro-boost" class="mt-4 inline-block btn btn-primary text-white px-6 py-3 rounded-full">Beli Produk</a>
+            </div>
+            <div class="card-bg p-6 rounded-lg shadow-md product-card" data-name="Product 2">
+                <img src="https://via.placeholder.com/300" alt="Product Image" class="w-full h-48 object-cover rounded">
+                <h3 class="text-lg font-semibold text-white mt-4">Product 2</h3>
+                <p class="mt-2 text-gray-400">$49.99</p>
+                <a href="#" class="mt-4 inline-block btn btn-primary text-white px-6 py-3 rounded-full">Buy Now</a>
+            </div>
+            <div class="card-bg p-6 rounded-lg shadow-md product-card" data-name="Product 3">
+                <img src="https://via.placeholder.com/300" alt="Product Image" class="w-full h-48 object-cover rounded">
+                <h3 class="text-lg font-semibold text-white mt-4">Product 3</h3>
+                <p class="mt-2 text-gray-400">$19.99</p>
+                <a href="#" class="mt-4 inline-block btn btn-primary text-white px-6 py-3 rounded-full">Buy Now</a>
+            </div>
+            <div class="card-bg p-6 rounded-lg shadow-md product-card" data-name="Product 4">
+                <img src="https://via.placeholder.com/300" alt="Product Image" class="w-full h-48 object-cover rounded">
+                <h3 class="text-lg font-semibold text-white mt-4">Product 4</h3>
+                <p class="mt-2 text-gray-400">$39.99</p>
+                <a href="#" class="mt-4 inline-block btn btn-primary text-white px-6 py-3 rounded-full">Buy Now</a>
+            </div>
+            <div class="card-bg p-6 rounded-lg shadow-md product-card" data-name="Product 5">
+                <img src="https://via.placeholder.com/300" alt="Product Image" class="w-full h-48 object-cover rounded">
+                <h3 class="text-lg font-semibold text-white mt-4">Product 5</h3>
+                <p class="mt-2 text-gray-400">$59.99</p>
+                <a href="#" class="mt-4 inline-block btn btn-primary text-white px-6 py-3 rounded-full">Buy Now</a>
+            </div>
+            <div class="card-bg p-6 rounded-lg shadow-md product-card" data-name="Product 6">
+                <img src="https://via.placeholder.com/300" alt="Product Image" class="w-full h-48 object-cover rounded">
+                <h3 class="text-lg font-semibold text-white mt-4">Product 6</h3>
+                <p class="mt-2 text-gray-400">$89.99</p>
+                <a href="#" class="mt-4 inline-block btn btn-primary text-white px-6 py-3 rounded-full">Buy Now</a>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer-bg py-6 mt-10">
@@ -164,26 +124,18 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <!-- Custom JS -->
     <script>
-        function selectOption(button, type, price) {
-            // Remove the selected class from all buttons
-            const buttons = document.querySelectorAll('.option-btn');
-            buttons.forEach(btn => btn.classList.remove('selected'));
-
-            // Add the selected class to the clicked button
-            button.classList.add('selected');
-
-            // You can also handle the selected type and price here
-            console.log('Selected product type:', type);
-            console.log('Price:', price);
-        }
-
-        function toggleAnnouncementPopup() {
-            const popup = document.querySelector('.announcement-popup');
-            const overlay = document.querySelector('.popup-overlay');
-            const isVisible = popup.style.display === 'block';
-            popup.style.display = isVisible ? 'none' : 'block';
-            overlay.style.display = isVisible ? 'none' : 'block';
-        }
+        document.getElementById('searchBar').addEventListener('input', function() {
+            let query = this.value.toLowerCase();
+            let products = document.querySelectorAll('.product-card');
+            products.forEach(function(product) {
+                let name = product.getAttribute('data-name').toLowerCase();
+                if (name.includes(query)) {
+                    product.style.display = '';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        });
     </script>
 </body>
-</html>
+        </html>
