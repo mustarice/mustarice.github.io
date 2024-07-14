@@ -8,6 +8,8 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Custom CSS -->
     <style>
         body {
@@ -43,8 +45,8 @@
             justify-content: center;
             margin-bottom: 1rem;
             transition: background-color 0.3s ease;
-            text-align: center;
-            width: auto;
+            text-align: left;
+            width: 100%;
         }
         .option-btn.selected {
             background-color: #6366f1;
@@ -92,12 +94,19 @@
                 <div class="mt-6">
                     <p class="text-gray-400">Select Product Type:</p>
                     <div class="mt-2">
-                        <button class="option-btn" onclick="selectOption(this, 'Type 1', 'Rp30.000')">Server Boost ×8 1 Bulan <span class="option-price">Rp30.000</span></button>
-                        <button class="option-btn" onclick="selectOption(this, 'Type 2', 'Rp50.000')">Server Boost ×14 1 Bulan <span class="option-price">Rp50.000</span></button>
-                        <button class="option-btn" onclick="selectOption(this, 'Type 3', 'Rp90.000')">Server Boost ×14 3 Bulan <span class="option-price">Rp90.000</span></button>
+                        <button class="option-btn" onclick="selectOption(this, 'Server Boost ×8 1 Bulan', 'Rp30.000')">Server Boost ×8 1 Bulan <span class="option-price">Rp30.000</span></button>
+                        <button class="option-btn" onclick="selectOption(this, 'Server Boost ×14 1 Bulan', 'Rp50.000')">Server Boost ×14 1 Bulan <span class="option-price">Rp50.000</span></button>
+                        <button class="option-btn" onclick="selectOption(this, 'Server Boost ×14 3 Bulan', 'Rp90.000')">Server Boost ×14 3 Bulan <span class="option-price">Rp90.000</span></button>
                     </div>
                 </div>
-                <button class="mt-6 btn btn-primary text-white px-6 py-3 rounded-full">Add to Cart</button>
+                <div class="mt-6">
+                    <button class="btn btn-primary text-white px-6 py-3 rounded-full mr-2">
+                        <i class="fab fa-discord"></i> Beli di Discord
+                    </button>
+                    <button class="btn btn-success text-white px-6 py-3 rounded-full">
+                        <i class="fab fa-whatsapp"></i> Beli di WhatsApp
+                    </button>
+                </div>
             </div>
         </div>
     </section>
