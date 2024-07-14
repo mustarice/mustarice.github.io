@@ -38,6 +38,11 @@
             background-color: transparent;
             padding: 0.5rem 1rem;
             border-radius: 0.375rem;
+            display: block;
+            width: fit-content;
+            margin: 0 auto 1rem;
+            transition: background-color 0.3s ease;
+            text-align: center;
         }
         .option-btn.selected {
             background-color: #6366f1;
@@ -79,10 +84,10 @@
                 <p class="mt-4 text-gray-400">This is a detailed description of the product. It covers all the features and benefits of the product, and provides any other relevant information that a customer might need to know before making a purchase.</p>
                 <div class="mt-6">
                     <p class="text-gray-400">Select Product Type:</p>
-                    <div class="mt-2 flex space-x-2">
-                        <button class="option-btn" onclick="selectOption(this, 'Type 1')">Type 1</button>
-                        <button class="option-btn" onclick="selectOption(this, 'Type 2')">Type 2</button>
-                        <button class="option-btn" onclick="selectOption(this, 'Type 3')">Type 3</button>
+                    <div class="mt-2">
+                        <button class="option-btn" onclick="selectOption(this, 'Type 1', '$39.99')">Type 1</button>
+                        <button class="option-btn" onclick="selectOption(this, 'Type 2', '$49.99')">Type 2</button>
+                        <button class="option-btn" onclick="selectOption(this, 'Type 3', '$59.99')">Type 3</button>
                     </div>
                 </div>
                 <button class="mt-6 btn btn-primary text-white px-6 py-3 rounded-full">Add to Cart</button>
@@ -108,7 +113,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <!-- Custom JS -->
     <script>
-        function selectOption(button, type) {
+        function selectOption(button, type, price) {
             // Remove the selected class from all buttons
             const buttons = document.querySelectorAll('.option-btn');
             buttons.forEach(btn => btn.classList.remove('selected'));
@@ -116,8 +121,9 @@
             // Add the selected class to the clicked button
             button.classList.add('selected');
 
-            // You can also handle the selected type here
+            // You can also handle the selected type and price here
             console.log('Selected product type:', type);
+            console.log('Price:', price);
         }
     </script>
 </body>
