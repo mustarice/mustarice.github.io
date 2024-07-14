@@ -48,6 +48,10 @@
             background-color: #6366f1;
             color: #fff;
         }
+        .option-price {
+            color: #9f9f9f;
+            font-size: 0.875rem;
+        }
     </style>
 </head>
 <body class="font-sans">
@@ -85,9 +89,9 @@
                 <div class="mt-6">
                     <p class="text-gray-400">Select Product Type:</p>
                     <div class="mt-2">
-                        <button class="option-btn" onclick="selectOption(this, 'Type 1', '$39.99')">Type 1</button>
-                        <button class="option-btn" onclick="selectOption(this, 'Type 2', '$49.99')">Type 2</button>
-                        <button class="option-btn" onclick="selectOption(this, 'Type 3', '$59.99')">Type 3</button>
+                        <button class="option-btn" onclick="selectOption(this, 'Type 1', '$39.99')">Type 1 <br> <span class="option-price">$39.99</span></button>
+                        <button class="option-btn" onclick="selectOption(this, 'Type 2', '$49.99')">Type 2 <br> <span class="option-price">$49.99</span></button>
+                        <button class="option-btn" onclick="selectOption(this, 'Type 3', '$59.99')">Type 3 <br> <span class="option-price">$59.99</span></button>
                     </div>
                 </div>
                 <button class="mt-6 btn btn-primary text-white px-6 py-3 rounded-full">Add to Cart</button>
