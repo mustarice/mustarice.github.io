@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>netshop.id - Product Detail</title>
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+        }
+        .navbar {
+            background-color: #2c2c2c;
+        }
+        .btn-primary {
+            background-color: #6366f1;
+            border-color: #6366f1;
+        }
+        .btn-primary:hover {
+            background-color: #4f46e5;
+            border-color: #4f46e5;
+        }
+        .card-bg, .footer-bg {
+            background-color: #2c2c2c;
+        }
+        .product-image {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body class="font-sans">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark shadow-md">
+            <div class="container">
+                <a class="navbar-brand text-2xl font-bold" href="#">netshop.id</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Shop</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Product Detail -->
+    <section class="container mx-auto my-10">
+        <div class="flex flex-wrap">
+            <!-- Product Image -->
+            <div class="w-full md:w-1/2 p-4">
+                <img src="https://via.placeholder.com/600" alt="Product Image" class="product-image rounded-lg shadow-md">
+            </div>
+            <!-- Product Info -->
+            <div class="w-full md:w-1/2 p-4">
+                <h2 class="text-3xl font-bold text-white">Product Name</h2>
+                <p class="mt-4 text-xl text-gray-400">$49.99</p>
+                <p class="mt-4 text-gray-400">This is a detailed description of the product. It covers all the features and benefits of the product, and provides any other relevant information that a customer might need to know before making a purchase.</p>
+                <div class="mt-6">
+                    <label for="quantity" class="block text-gray-400">Quantity:</label>
+                    <input type="number" id="quantity" name="quantity" min="1" max="10" value="1" class="p-2 mt-2 rounded-lg bg-gray-700 text-white">
+                </div>
+                <button class="mt-6 btn btn-primary text-white px-6 py-3 rounded-full">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Products -->
+    <section class="container mx-auto my-10 text-center">
+        <h2 class="text-3xl font-bold text-white">Related Products</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+            <div class="card-bg p-6 rounded-lg shadow-md">
+                <img src="https://via.placeholder.com/300" alt="Related Product Image" class="w-full h-48 object-cover rounded">
+                <h3 class="text-lg font-semibold text-white mt-4">Related Product 1</h3>
+                <p class="mt-2 text-gray-400">$29.99</p>
+                <a href="#" class="mt-4 inline-block btn btn-primary text-white px-6 py-3 rounded-full">View Product</a>
+            </div>
+            <div class="card-bg p-6 rounded-lg shadow-md">
+                <img src="https://via.placeholder.com/300" alt="Related Product Image" class="w-full h-48 object-cover rounded">
+                <h3 class="text-lg font-semibold text-white mt-4">Related Product 2</h3>
+                <p class="mt-2 text-gray-400">$39.99</p>
+                <a href="#" class="mt-4 inline-block btn btn-primary text-white px-6 py-3 rounded-full">View Product</a>
+            </div>
+            <div class="card-bg p-6 rounded-lg shadow-md">
+                <img src="https://via.placeholder.com/300" alt="Related Product Image" class="w-full h-48 object-cover rounded">
+                <h3 class="text-lg font-semibold text-white mt-4">Related Product 3</h3>
+                <p class="mt-2 text-gray-400">$19.99</p>
+                <a href="#" class="mt-4 inline-block btn btn-primary text-white px-6 py-3 rounded-full">View Product</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-bg py-6 mt-10">
+        <div class="container mx-auto text-center text-gray-400">
+            <p>© 2024 netshop.id. All rights reserved.</p>
+            <p>Follow us on:
+                <a href="#" class="text-blue-500 hover:text-blue-700">Facebook</a>,
+                <a href="#" class="text-blue-500 hover:text-blue-700">Twitter</a>,
+                <a href="#" class="text-blue-500 hover:text-blue-700">Instagram</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
