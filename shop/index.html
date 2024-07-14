@@ -28,6 +28,22 @@
         .card-bg, .footer-bg {
             background-color: #2c2c2c;
         }
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+        .spinner-border {
+            width: 3rem;
+            height: 3rem;
+        }
     </style>
 </head>
 <body class="font-sans">
@@ -71,40 +87,47 @@
                 <img src="https://mustarice.github.io/gd/20240714_211801.jpg" alt="nitro-boost-img" class="w-full h-48 object-cover rounded">
                 <h3 class="text-lg font-semibold text-white mt-4">Discord Server Boost</h3>
                 <p class="mt-2 text-gray-400">Rp30.000</p>
-                <a href="nitro-boost" class="mt-4 inline-block btn btn-primary text-white px-6 py-3 rounded-full">Beli Produk</a>
+                <a href="nitro-boost" class="mt-4 inline-block btn btn-primary text-white px-6 py-3 rounded-full beli-produk">Beli Produk</a>
             </div>
             <div class="card-bg p-6 rounded-lg shadow-md product-card" data-name="Product 2">
                 <img src="https://via.placeholder.com/300" alt="Product Image" class="w-full h-48 object-cover rounded">
                 <h3 class="text-lg font-semibold text-white mt-4">Product 2</h3>
                 <p class="mt-2 text-gray-400">$49.99</p>
-                <a href="#" class="mt-4 inline-block btn btn-primary text-white px-6 py-3 rounded-full">Buy Now</a>
+                <a href="#" class="mt-4 inline-block btn btn-primary text-white px-6 py-3 rounded-full beli-produk">Buy Now</a>
             </div>
             <div class="card-bg p-6 rounded-lg shadow-md product-card" data-name="Product 3">
                 <img src="https://via.placeholder.com/300" alt="Product Image" class="w-full h-48 object-cover rounded">
                 <h3 class="text-lg font-semibold text-white mt-4">Product 3</h3>
                 <p class="mt-2 text-gray-400">$19.99</p>
-                <a href="#" class="mt-4 inline-block btn btn-primary text-white px-6 py-3 rounded-full">Buy Now</a>
+                <a href="#" class="mt-4 inline-block btn btn-primary text-white px-6 py-3 rounded-full beli-produk">Buy Now</a>
             </div>
             <div class="card-bg p-6 rounded-lg shadow-md product-card" data-name="Product 4">
                 <img src="https://via.placeholder.com/300" alt="Product Image" class="w-full h-48 object-cover rounded">
                 <h3 class="text-lg font-semibold text-white mt-4">Product 4</h3>
                 <p class="mt-2 text-gray-400">$39.99</p>
-                <a href="#" class="mt-4 inline-block btn btn-primary text-white px-6 py-3 rounded-full">Buy Now</a>
+                <a href="#" class="mt-4 inline-block btn btn-primary text-white px-6 py-3 rounded-full beli-produk">Buy Now</a>
             </div>
             <div class="card-bg p-6 rounded-lg shadow-md product-card" data-name="Product 5">
                 <img src="https://via.placeholder.com/300" alt="Product Image" class="w-full h-48 object-cover rounded">
                 <h3 class="text-lg font-semibold text-white mt-4">Product 5</h3>
                 <p class="mt-2 text-gray-400">$59.99</p>
-                <a href="#" class="mt-4 inline-block btn btn-primary text-white px-6 py-3 rounded-full">Buy Now</a>
+                <a href="#" class="mt-4 inline-block btn btn-primary text-white px-6 py-3 rounded-full beli-produk">Buy Now</a>
             </div>
             <div class="card-bg p-6 rounded-lg shadow-md product-card" data-name="Product 6">
                 <img src="https://via.placeholder.com/300" alt="Product Image" class="w-full h-48 object-cover rounded">
                 <h3 class="text-lg font-semibold text-white mt-4">Product 6</h3>
                 <p class="mt-2 text-gray-400">$89.99</p>
-                <a href="#" class="mt-4 inline-block btn btn-primary text-white px-6 py-3 rounded-full">Buy Now</a>
+                <a href="#" class="mt-4 inline-block btn btn-primary text-white px-6 py-3 rounded-full beli-produk">Buy Now</a>
             </div>
         </div>
     </section>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay d-flex">
+        <div class="spinner-border text-primary" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="footer-bg py-6 mt-10">
@@ -134,6 +157,16 @@
                 } else {
                     product.style.display = 'none';
                 }
+            });
+        });
+
+        document.querySelectorAll('.beli-produk').forEach(function(button) {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector('.loading-overlay').style.display = 'flex';
+                setTimeout(() => {
+                    window.location.href = this.href;
+                }, 2000); // Delay for 2 seconds
             });
         });
     </script>
