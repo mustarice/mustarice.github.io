@@ -65,14 +65,16 @@
             justify-content: start;
             margin-bottom: 1rem;
             transition: opacity 0.3s ease;
+            position: relative;
         }
         .toast .progress-bar {
             background-color: #6366f1;
             height: 0.25rem;
-            width: 0%;
+            width: 0;
             position: absolute;
             bottom: 0;
             left: 0;
+            transition: width 3s linear;
         }
         .toast.show {
             opacity: 1;
@@ -189,7 +191,7 @@
         function showToast(message) {
             const toastContainer = document.querySelector('.toast-container');
             const toast = document.createElement('div');
-            toast.className = 'toast';
+            toast.className = 'toast show';
             toast.innerHTML = `
                 <i class="fas fa-exclamation-circle mr-2"></i> ${message}
                 <div class="progress-bar"></div>
