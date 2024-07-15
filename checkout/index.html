@@ -152,6 +152,13 @@
     <script>
         let selectedPaymentMethod = null;
 
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            const regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            const results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+
         function selectPaymentMethod(button, method) {
             // Remove the selected class from all buttons
             const buttons = document.querySelectorAll('.payment-option');
@@ -166,9 +173,9 @@
         }
 
         function continuePayment() {
-            const clientName = 'John_Doe'; // Replace with actual client name from your data
-            const productName = 'Product_Name'; // Replace with actual product name from your data
-            const amount = 100000; // Replace with actual amount from your data
+            const clientName = getUrlParameter('id');
+            const productName = getUrlParameter('p');
+            const amount = getUrlParameter('price');
 
             if (selectedPaymentMethod === 'E-Wallet' || selectedPaymentMethod === 'Bank Transfer' || selectedPaymentMethod === 'Credit Card') {
                 showToast(`${selectedPaymentMethod} sedang nonaktif`);
