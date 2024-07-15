@@ -166,11 +166,16 @@
         }
 
         function continuePayment() {
+            const clientName = 'John_Doe'; // Replace with actual client name from your data
+            const productName = 'Product_Name'; // Replace with actual product name from your data
+            const amount = 100000; // Replace with actual amount from your data
+
             if (selectedPaymentMethod === 'E-Wallet' || selectedPaymentMethod === 'Bank Transfer' || selectedPaymentMethod === 'Credit Card') {
                 showToast(`${selectedPaymentMethod} sedang nonaktif`);
+            } else if (selectedPaymentMethod === 'QRIS') {
+                window.location.href = `qris.html?id=${clientName}&p=${productName}&price=${amount}`;
             } else {
-                // Handle active payment methods here
-                console.log('Proceed with payment method:', selectedPaymentMethod);
+                showToast(`Metode pembayaran ${selectedPaymentMethod} sedang nonaktif`);
             }
         }
 
