@@ -48,6 +48,38 @@
             background-color: #6366f1;
             color: #fff;
         }
+        .toast-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        .toast {
+            background-color: #2c2c2c;
+            color: #e0e0e0;
+            border: 1px solid #6366f1;
+            padding: 1rem;
+            border-radius: 0.375rem;
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            margin-bottom: 1rem;
+            transition: opacity 0.3s ease;
+        }
+        .toast .progress-bar {
+            background-color: #6366f1;
+            height: 0.25rem;
+            width: 0%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+        .toast.show {
+            opacity: 1;
+        }
+        .toast.hide {
+            opacity: 0;
+        }
     </style>
 </head>
 <body class="font-sans">
@@ -93,9 +125,12 @@
             </div>
         </div>
         <div class="flex justify-center mt-10">
-            <button class="btn btn-primary text-white px-6 py-3 rounded-full">Lanjutkan Pembayaran</button>
+            <button class="btn btn-primary text-white px-6 py-3 rounded-full" onclick="continuePayment()">Lanjutkan Pembayaran</button>
         </div>
     </section>
+
+    <!-- Toast Container -->
+    <div class="toast-container"></div>
 
     <!-- Footer -->
     <footer class="footer-bg py-6 mt-10">
@@ -115,6 +150,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <!-- Custom JS -->
     <script>
+        let selectedPaymentMethod = null;
+
         function selectPaymentMethod(button, method) {
             // Remove the selected class from all buttons
             const buttons = document.querySelectorAll('.payment-option');
@@ -122,9 +159,44 @@
 
             // Add the selected class to the clicked button
             button.classList.add('selected');
+            selectedPaymentMethod = method;
 
             // You can also handle the selected payment method here
             console.log('Selected payment method:', method);
+        }
+
+        function continuePayment() {
+            if (selectedPaymentMethod === 'E-Wallet' || selectedPaymentMethod === 'Bank Transfer' || selectedPaymentMethod === 'Credit Card') {
+                showToast(`${selectedPaymentMethod} sedang nonaktif`);
+            } else {
+                // Handle active payment methods here
+                console.log('Proceed with payment method:', selectedPaymentMethod);
+            }
+        }
+
+        function showToast(message) {
+            const toastContainer = document.querySelector('.toast-container');
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.innerHTML = `
+                <i class="fas fa-exclamation-circle mr-2"></i> ${message}
+                <div class="progress-bar"></div>
+            `;
+            toastContainer.appendChild(toast);
+
+            // Animate progress bar
+            const progressBar = toast.querySelector('.progress-bar');
+            setTimeout(() => {
+                progressBar.style.width = '100%';
+            }, 100);
+
+            // Hide toast after 3 seconds
+            setTimeout(() => {
+                toast.classList.add('hide');
+                setTimeout(() => {
+                    toast.remove();
+                }, 300);
+            }, 3000);
         }
     </script>
 </body>
