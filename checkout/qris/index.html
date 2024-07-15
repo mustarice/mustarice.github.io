@@ -115,10 +115,20 @@
             return urlParams.get(param);
         }
 
+        // Function to convert underscore to space
+        function convertUnderscoreToSpace(text) {
+            return text.replace(/_/g, ' ');
+        }
+
+        // Function to format number as Rupiah
+        function formatRupiah(amount) {
+            return parseInt(amount).toLocaleString('id-ID');
+        }
+
         // Setting the values from query parameters
         document.getElementById('client-name').textContent = getQueryParam('id');
-        document.getElementById('product-name').textContent = getQueryParam('p');
-        document.getElementById('payment-amount').textContent = getQueryParam('price');
+        document.getElementById('product-name').textContent = convertUnderscoreToSpace(getQueryParam('p'));
+        document.getElementById('payment-amount').textContent = formatRupiah(getQueryParam('price'));
     </script>
 </body>
 </html>
