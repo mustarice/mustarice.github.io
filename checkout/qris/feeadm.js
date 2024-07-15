@@ -8,8 +8,8 @@ function calculateAdminFee(amount) {
     }
 
     // Calculate the admin fee
-    let feePercentage = 0.0085; // 0.85%
-    let fixedFee = 150; // Rp150
+    let feePercentage = 0.0055;
+    let fixedFee = 100;
     let adminFee = (nominal * feePercentage) + fixedFee;
 
     return Math.round(adminFee);
