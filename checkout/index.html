@@ -180,7 +180,7 @@
             if (selectedPaymentMethod === 'E-Wallet' || selectedPaymentMethod === 'Bank Transfer' || selectedPaymentMethod === 'Credit Card') {
                 showToast(`${selectedPaymentMethod} sedang nonaktif`);
             } else if (selectedPaymentMethod === 'QRIS') {
-                window.location.href = `qris.html?id=${clientName}&p=${productName}&price=${amount}`;
+                window.location.href = `qris/index.html?id=${clientName}&p=${productName}&price=${amount}`;
             } else {
                 showToast(`Metode pembayaran ${selectedPaymentMethod} sedang nonaktif`);
             }
