@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>netshop.id - Konfirmasi Pembayaran Pending</title>
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+        }
+        .navbar {
+            background-color: #2c2c2c;
+        }
+        .btn-primary {
+            background-color: #6366f1;
+            border-color: #6366f1;
+        }
+        .btn-primary:hover {
+            background-color: #4f46e5;
+            border-color: #4f46e5;
+        }
+        .card-bg, .footer-bg {
+            background-color: #2c2c2c;
+        }
+        .confirmation-card {
+            background-color: #2c2c2c;
+            border: 1px solid #6366f1;
+            padding: 1.5rem;
+            border-radius: 0.375rem;
+        }
+        .icon {
+            font-size: 3rem;
+            color: #ffdd57;
+        }
+    </style>
+</head>
+<body class="font-sans">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark shadow-md">
+            <div class="container">
+                <a class="navbar-brand text-2xl font-bold" href="#">netshop.id</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Shop</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Payment Confirmation -->
+    <section class="container mx-auto my-10">
+        <div class="flex flex-wrap justify-center">
+            <div class="w-full md:w-1/2 p-4">
+                <div class="confirmation-card text-center">
+                    <i class="fas fa-hourglass-half icon mb-4"></i>
+                    <h2 class="text-3xl font-bold text-white mb-4">Konfirmasi Pembayaran Pending</h2>
+                    <p class="text-xl text-gray-400 mb-4">Pembayaran Anda sedang dalam proses. Mohon tunggu konfirmasi dari kami.</p>
+                    <div class="text-left mb-4">
+                        <p><strong>Nama Klien:</strong> <span id="client-name"></span></p>
+                        <p><strong>Produk:</strong> <span id="product-name"></span></p>
+                        <p><strong>Jumlah Pembayaran:</strong> Rp<span id="payment-amount"></span></p>
+                    </div>
+                    <p class="text-gray-400">Kami akan mengirimkan notifikasi setelah pembayaran Anda dikonfirmasi. Terima kasih telah berbelanja di netshop.id!</p>
+                    <a href="shop.html" class="btn btn-primary text-white px-6 py-3 rounded-full mt-4">
+                        <i class="fas fa-arrow-left mr-2"></i> Kembali ke Toko
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-bg py-6 mt-10">
+        <div class="container mx-auto text-center text-gray-400">
+            <p>© 2024 netshop.id. All rights reserved.</p>
+            <p>Follow us on:
+                <a href="#" class="text-blue-500 hover:text-blue-700">Facebook</a>,
+                <a href="#" class="text-blue-500 hover:text-blue-700">Twitter</a>,
+                <a href="#" class="text-blue-500 hover:text-blue-700">Instagram</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Custom JS -->
+    <script>
+        // Function to get query parameters
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Function to convert underscore to space
+        function convertUnderscoreToSpace(text) {
+            return text.replace(/_/g, ' ');
+        }
+
+        // Function to format number as Rupiah
+        function formatRupiah(amount) {
+            return parseInt(amount).toLocaleString('id-ID');
+        }
+
+        // Setting the values from query parameters
+        document.getElementById('client-name').textContent = getQueryParam('id');
+        document.getElementById('product-name').textContent = convertUnderscoreToSpace(getQueryParam('p'));
+        document.getElementById('payment-amount').textContent = formatRupiah(getQueryParam('price'));
+    </script>
+</body>
+</html>
