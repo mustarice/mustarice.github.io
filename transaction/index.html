@@ -36,6 +36,17 @@
             padding: 1.5rem;
             border-radius: 0.375rem;
             margin-bottom: 1rem;
+            position: relative;
+        }
+        .transaction-label {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: #6366f1;
+            color: #fff;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.375rem;
+            font-weight: bold;
         }
         .transaction-image {
             max-width: 100%;
@@ -93,17 +104,7 @@
         <div id="transaction-container" class="flex flex-wrap justify-center">
             <!-- Example Transaction Card -->
             <div class="w-full md:w-1/2 p-4 transaction-card" data-name="John Doe" data-date="2024-07-15">
-                <img src="gdgjh/1.jpg" alt="Transaction Proof" class="transaction-image rounded-lg shadow-md">
-                <div class="text-left">
-                    <p><strong>Transaction ID:</strong> 123456789</p>
-                    <p><strong>Name:</strong> John Doe</p>
-                    <p><strong>Product:</strong> Example Product</p>
-                    <p><strong>Amount:</strong> Rp<span>500,000</span></p>
-                    <p><strong>Date:</strong> 2024-07-15</p>
-                </div>
-            </div>
-
-            <div class="w-full md:w-1/2 p-4 transaction-card" data-name="John Doe" data-date="2024-07-15">
+                <div class="transaction-label">Transaction #1</div>
                 <img src="gdgjh/1.jpg" alt="Transaction Proof" class="transaction-image rounded-lg shadow-md">
                 <div class="text-left">
                     <p><strong>Transaction ID:</strong> 123456789</p>
