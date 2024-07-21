@@ -8,6 +8,6 @@ function calculateAdminFee(amount) {
         return Math.round(nominal * 0.0025);
     } else {
         // 0.4% for amounts below 250,000
-        return Math.round(nominal * 0.0045);
+        return Math.round(nominal * 0.0055);
     }
 }
