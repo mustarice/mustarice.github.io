@@ -37,6 +37,16 @@
         .modal-bg {
             background-color: rgba(0, 0, 0, 0.8);
         }
+        .news-label {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.875rem;
+        }
     </style>
 </head>
 <body class="font-sans">
@@ -126,6 +136,34 @@
                 <h3 class="text-lg font-semibold text-white mt-4">Product 3</h3>
                 <p class="mt-2 text-gray-400">$19.99</p>
                 <a href="#" class="mt-4 inline-block btn btn-primary text-white px-6 py-3 rounded-full">Buy Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="container mx-auto my-10 text-center">
+        <h2 class="text-3xl font-bold text-white">Latest News</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+            <div class="card-bg p-6 rounded-lg shadow-md relative">
+                <img src="https://via.placeholder.com/300" alt="News Image" class="w-full h-48 object-cover rounded">
+                <div class="news-label">Location - Date</div>
+                <h3 class="text-lg font-semibold text-white mt-4">News Title 1</h3>
+                <p class="mt-2 text-gray-400">This is a brief caption for the first news item.</p>
+                <a href="#" class="mt-4 inline-block btn btn-primary text-white px-6 py-3 rounded-full">Read More</a>
+            </div>
+            <div class="card-bg p-6 rounded-lg shadow-md relative">
+                <img src="https://via.placeholder.com/300" alt="News Image" class="w-full h-48 object-cover rounded">
+                <div class="news-label">Location - Date</div>
+                <h3 class="text-lg font-semibold text-white mt-4">News Title 2</h3>
+                <p class="mt-2 text-gray-400">This is a brief caption for the second news item.</p>
+                <a href="#" class="mt-4 inline-block btn btn-primary text-white px-6 py-3 rounded-full">Read More</a>
+            </div>
+            <div class="card-bg p-6 rounded-lg shadow-md relative">
+                <img src="https://via.placeholder.com/300" alt="News Image" class="w-full h-48 object-cover rounded">
+                <div class="news-label">Location - Date</div>
+                <h3 class="text-lg font-semibold text-white mt-4">News Title 3</h3>
+                <p class="mt-2 text-gray-400">This is a brief caption for the third news item.</p>
+                <a href="#" class="mt-4 inline-block btn btn-primary text-white px-6 py-3 rounded-full">Read More</a>
             </div>
         </div>
     </section>
