@@ -8,10 +8,9 @@
 </head>
 <body class="bg-gray-900 text-white">
 
-    <div class="flex items-center justify-center min-h-screen">
-        <div class="bg-gray-800 rounded-lg shadow-lg p-6 w-full max-w-md space-y-4">
+    <div class="flex flex-col items-center justify-center min-h-screen space-y-6">
+        <div class="bg-gray-800 rounded-lg shadow-lg p-6 w-full max-w-md space-y-4" id="notificationBox">
             <h2 class="text-2xl font-bold text-green-500 mb-4">Payment Successful</h2>
-
             <div id="notification" class="space-y-4">
                 <div class="flex justify-between">
                     <span class="font-semibold">Transaction ID:</span>
@@ -30,7 +29,10 @@
                     <span id="status" class="text-green-500">Success</span>
                 </div>
             </div>
+            <button id="downloadButton" class="w-full bg-blue-500 text-white rounded-md p-2 mt-4 hover:bg-blue-600">Download as PNG</button>
+        </div>
 
+        <div class="bg-gray-800 rounded-lg shadow-lg p-6 w-full max-w-md space-y-4">
             <form id="paymentForm" class="space-y-4">
                 <div>
                     <label for="amountInput" class="block font-semibold">Amount:</label>
@@ -45,6 +47,7 @@
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
     <script>
         // Function to generate random transaction ID
         function generateTransactionId() {
@@ -65,6 +68,16 @@
             document.getElementById('transactionId').textContent = transactionId;
             document.getElementById('amount').textContent = `Rp ${parseInt(amount).toLocaleString('id-ID')}`;
             document.getElementById('date').textContent = new Date(date).toLocaleDateString('id-ID');
+        });
+
+        // Function to download the notification box as PNG
+        document.getElementById('downloadButton').addEventListener('click', function() {
+            html2canvas(document.getElementById('notificationBox')).then(function(canvas) {
+                const link = document.createElement('a');
+                link.href = canvas.toDataURL('image/png');
+                link.download = 'payment_success.png';
+                link.click();
+            });
         });
     </script>
 
