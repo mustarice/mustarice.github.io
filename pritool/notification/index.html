@@ -13,6 +13,14 @@
             <h2 class="text-2xl font-bold text-green-500 mb-4 text-center">Payment Successful</h2>
             <div id="notification" class="space-y-4">
                 <div class="flex justify-between">
+                    <span class="font-semibold">Product Name:</span>
+                    <span id="productName" class="text-gray-300">-</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="font-semibold">Notes:</span>
+                    <span id="productNotes" class="text-gray-300">-</span>
+                </div>
+                <div class="flex justify-between">
                     <span class="font-semibold">Transaction ID:</span>
                     <span id="transactionId" class="text-gray-300">-</span>
                 </div>
@@ -25,6 +33,10 @@
                     <span id="date" class="text-gray-300">-</span>
                 </div>
                 <div class="flex justify-between">
+                    <span class="font-semibold">Time (WIB):</span>
+                    <span id="time" class="text-gray-300">-</span>
+                </div>
+                <div class="flex justify-between">
                     <span class="font-semibold">Status:</span>
                     <span id="status" class="text-green-500">Success</span>
                 </div>
@@ -33,6 +45,14 @@
 
         <div class="bg-gray-800 rounded-lg shadow-lg p-6 w-full max-w-md space-y-4">
             <form id="paymentForm" class="space-y-4">
+                <div>
+                    <label for="productInput" class="block font-semibold">Product Name:</label>
+                    <input type="text" id="productInput" class="w-full bg-gray-700 text-white rounded-md p-2 mt-1" required>
+                </div>
+                <div>
+                    <label for="notesInput" class="block font-semibold">Notes:</label>
+                    <input type="text" id="notesInput" class="w-full bg-gray-700 text-white rounded-md p-2 mt-1">
+                </div>
                 <div>
                     <label for="amountInput" class="block font-semibold">Amount:</label>
                     <input type="number" id="amountInput" class="w-full bg-gray-700 text-white rounded-md p-2 mt-1" required>
@@ -57,17 +77,34 @@
             return `${prefix}${datePart}${randomPart}`;
         }
 
+        // Function to get current time in WIB (UTC+7)
+        function getCurrentTimeWIB() {
+            const now = new Date();
+            const wibOffset = 7 * 60; // WIB is UTC+7
+            const localOffset = now.getTimezoneOffset();
+            const wibTime = new Date(now.getTime() + (wibOffset + localOffset) * 60 * 1000);
+            const hours = String(wibTime.getUTCHours()).padStart(2, '0');
+            const minutes = String(wibTime.getUTCMinutes()).padStart(2, '0');
+            return `${hours}:${minutes}`;
+        }
+
         // Handling form submission to generate notification
         document.getElementById('paymentForm').addEventListener('submit', function(event) {
             event.preventDefault();
 
             const transactionId = generateTransactionId();
+            const productName = document.getElementById('productInput').value;
+            const productNotes = document.getElementById('notesInput').value || '-';
             const amount = document.getElementById('amountInput').value;
             const date = document.getElementById('dateInput').value;
+            const time = getCurrentTimeWIB();
 
             document.getElementById('transactionId').textContent = transactionId;
+            document.getElementById('productName').textContent = productName;
+            document.getElementById('productNotes').textContent = productNotes;
             document.getElementById('amount').textContent = `Rp ${parseInt(amount).toLocaleString('id-ID')}`;
             document.getElementById('date').textContent = new Date(date).toLocaleDateString('id-ID');
+            document.getElementById('time').textContent = time;
         });
 
         // Function to download the notification box as PNG
