@@ -4,50 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment Success Notification</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body {
-            background-color: #1a202c; /* Dark theme background */
-            color: #f7fafc; /* Light text color */
-        }
-    </style>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="flex items-center justify-center min-h-screen">
-    <div class="bg-gray-800 rounded-lg shadow-lg p-8 max-w-md w-full">
-        <div class="text-center mb-6">
-            <svg class="w-16 h-16 mx-auto text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m1-5a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
-            <h2 class="text-2xl font-bold mt-4">Pembayaran Berhasil!</h2>
-        </div>
-        <div class="space-y-4">
-            <div class="flex justify-between items-center">
-                <span class="text-gray-400">ID Pembayaran:</span>
-                <span id="paymentId" class="font-medium">1234567890</span>
-            </div>
-            <div class="flex justify-between items-center">
-                <span class="text-gray-400">Nominal:</span>
-                <span id="paymentAmount" class="font-medium">Rp1.000.000</span>
-            </div>
-            <div class="flex justify-between items-center">
-                <span class="text-gray-400">Tanggal:</span>
-                <span id="paymentDate" class="font-medium">28 Juli 2024</span>
+<body class="bg-gray-900 text-white">
+
+    <div class="flex items-center justify-center min-h-screen">
+        <div class="bg-gray-800 rounded-lg shadow-lg p-6 w-full max-w-md">
+            <h2 class="text-2xl font-bold text-green-500 mb-4">Payment Successful</h2>
+            <div id="notification" class="space-y-4">
+                <div class="flex justify-between">
+                    <span class="font-semibold">Transaction ID:</span>
+                    <span id="transactionId" class="text-gray-300">123456789</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="font-semibold">Amount:</span>
+                    <span id="amount" class="text-gray-300">Rp 1,000,000</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="font-semibold">Date:</span>
+                    <span id="date" class="text-gray-300">2024-07-28</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="font-semibold">Status:</span>
+                    <span id="status" class="text-green-500">Success</span>
+                </div>
             </div>
         </div>
     </div>
 
     <script>
-        // Example data
+        // Example JavaScript to dynamically update the notification content
+        const transactionId = document.getElementById('transactionId');
+        const amount = document.getElementById('amount');
+        const date = document.getElementById('date');
+        const status = document.getElementById('status');
+
+        // You can set these values dynamically, here are some example values
         const paymentData = {
-            id: '1234567890',
-            amount: 'Rp1.000.000',
-            date: '28 Juli 2024'
+            transactionId: 'INV202407280001',
+            amount: 'Rp 1,500,000',
+            date: new Date().toLocaleDateString('id-ID'),
+            status: 'Success'
         };
 
-        // Populate the page with payment data
-        document.getElementById('paymentId').textContent = paymentData.id;
-        document.getElementById('paymentAmount').textContent = paymentData.amount;
-        document.getElementById('paymentDate').textContent = paymentData.date;
+        transactionId.textContent = paymentData.transactionId;
+        amount.textContent = paymentData.amount;
+        date.textContent = paymentData.date;
+        status.textContent = paymentData.status;
     </script>
+
 </body>
 </html>
