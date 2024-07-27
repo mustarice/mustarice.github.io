@@ -19,6 +19,12 @@
             pointer-events: none;
             user-select: none;
         }
+        .hidden {
+            display: none;
+        }
+        .cursor-pointer {
+            cursor: pointer;
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-white">
@@ -31,9 +37,12 @@
                     <span class="font-semibold">Product Name:</span>
                     <span id="productName" class="text-gray-300">-</span>
                 </div>
-                <div class="flex justify-between">
+                <div class="flex justify-between items-center cursor-pointer" id="toggleNotes">
                     <span class="font-semibold">Notes:</span>
                     <span id="productNotes" class="text-gray-300">-</span>
+                </div>
+                <div id="notesContainer" class="hidden">
+                    <textarea id="productNotesInput" class="w-full bg-gray-700 text-white rounded-md p-2 mt-1" rows="3" readonly></textarea>
                 </div>
                 <div class="flex justify-between">
                     <span class="font-semibold">Transaction ID:</span>
@@ -121,6 +130,19 @@
             document.getElementById('amount').textContent = `Rp ${parseInt(amount).toLocaleString('id-ID')}`;
             document.getElementById('date').textContent = new Date(date).toLocaleDateString('id-ID');
             document.getElementById('time').textContent = time;
+
+            // Set textarea value to notes
+            document.getElementById('productNotesInput').value = productNotes;
+        });
+
+        // Function to toggle visibility of notes
+        document.getElementById('toggleNotes').addEventListener('click', function() {
+            const notesContainer = document.getElementById('notesContainer');
+            if (notesContainer.classList.contains('hidden')) {
+                notesContainer.classList.remove('hidden');
+            } else {
+                notesContainer.classList.add('hidden');
+            }
         });
 
         // Function to download the notification box as PNG
