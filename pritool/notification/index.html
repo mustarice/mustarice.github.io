@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Success Notification</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #1a202c; /* Dark theme background */
+            color: #f7fafc; /* Light text color */
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen">
+    <div class="bg-gray-800 rounded-lg shadow-lg p-8 max-w-md w-full">
+        <div class="text-center mb-6">
+            <svg class="w-16 h-16 mx-auto text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m1-5a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <h2 class="text-2xl font-bold mt-4">Pembayaran Berhasil!</h2>
+        </div>
+        <div class="space-y-4">
+            <div class="flex justify-between items-center">
+                <span class="text-gray-400">ID Pembayaran:</span>
+                <span id="paymentId" class="font-medium">1234567890</span>
+            </div>
+            <div class="flex justify-between items-center">
+                <span class="text-gray-400">Nominal:</span>
+                <span id="paymentAmount" class="font-medium">Rp1.000.000</span>
+            </div>
+            <div class="flex justify-between items-center">
+                <span class="text-gray-400">Tanggal:</span>
+                <span id="paymentDate" class="font-medium">28 Juli 2024</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Example data
+        const paymentData = {
+            id: '1234567890',
+            amount: 'Rp1.000.000',
+            date: '28 Juli 2024'
+        };
+
+        // Populate the page with payment data
+        document.getElementById('paymentId').textContent = paymentData.id;
+        document.getElementById('paymentAmount').textContent = paymentData.amount;
+        document.getElementById('paymentDate').textContent = paymentData.date;
+    </script>
+</body>
+</html>
