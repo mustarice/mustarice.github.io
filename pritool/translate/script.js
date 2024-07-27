@@ -2,12 +2,23 @@ document.getElementById('translateBtn').addEventListener('click', async () => {
     const inputText = document.getElementById('inputText').value;
     const outputDiv = document.getElementById('outputText');
 
+    if (inputText.trim() === "") {
+        outputDiv.textContent = "Masukkan teks untuk diterjemahkan.";
+        return;
+    }
+
     try {
-        const response = await axios.post('https://libretranslate.com/translate', {
+        const response = await axios.post('https://libretranslate.de/translate', {
             q: inputText,
             source: "id",
-            target: "ja"
+            target: "ja",
+            format: "text"
+        }, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
         });
+
         outputDiv.textContent = response.data.translatedText;
     } catch (error) {
         console.error("Error translating text:", error);
@@ -17,6 +28,10 @@ document.getElementById('translateBtn').addEventListener('click', async () => {
 
 document.getElementById('speakBtn').addEventListener('click', () => {
     const outputText = document.getElementById('outputText').textContent;
+    if (outputText.trim() === "") {
+        alert("Tidak ada teks untuk diputar.");
+        return;
+    }
     const utterance = new SpeechSynthesisUtterance(outputText);
     utterance.lang = 'ja-JP';
     window.speechSynthesis.speak(utterance);
