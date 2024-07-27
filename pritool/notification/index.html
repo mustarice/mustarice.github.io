@@ -9,48 +9,63 @@
 <body class="bg-gray-900 text-white">
 
     <div class="flex items-center justify-center min-h-screen">
-        <div class="bg-gray-800 rounded-lg shadow-lg p-6 w-full max-w-md">
+        <div class="bg-gray-800 rounded-lg shadow-lg p-6 w-full max-w-md space-y-4">
             <h2 class="text-2xl font-bold text-green-500 mb-4">Payment Successful</h2>
+
             <div id="notification" class="space-y-4">
                 <div class="flex justify-between">
                     <span class="font-semibold">Transaction ID:</span>
-                    <span id="transactionId" class="text-gray-300">123456789</span>
+                    <span id="transactionId" class="text-gray-300">-</span>
                 </div>
                 <div class="flex justify-between">
                     <span class="font-semibold">Amount:</span>
-                    <span id="amount" class="text-gray-300">Rp 1,000,000</span>
+                    <span id="amount" class="text-gray-300">-</span>
                 </div>
                 <div class="flex justify-between">
                     <span class="font-semibold">Date:</span>
-                    <span id="date" class="text-gray-300">2024-07-28</span>
+                    <span id="date" class="text-gray-300">-</span>
                 </div>
                 <div class="flex justify-between">
                     <span class="font-semibold">Status:</span>
                     <span id="status" class="text-green-500">Success</span>
                 </div>
             </div>
+
+            <form id="paymentForm" class="space-y-4">
+                <div>
+                    <label for="amountInput" class="block font-semibold">Amount:</label>
+                    <input type="number" id="amountInput" class="w-full bg-gray-700 text-white rounded-md p-2 mt-1" required>
+                </div>
+                <div>
+                    <label for="dateInput" class="block font-semibold">Date:</label>
+                    <input type="date" id="dateInput" class="w-full bg-gray-700 text-white rounded-md p-2 mt-1" required>
+                </div>
+                <button type="submit" class="w-full bg-green-500 text-white rounded-md p-2 mt-4 hover:bg-green-600">Generate Notification</button>
+            </form>
         </div>
     </div>
 
     <script>
-        // Example JavaScript to dynamically update the notification content
-        const transactionId = document.getElementById('transactionId');
-        const amount = document.getElementById('amount');
-        const date = document.getElementById('date');
-        const status = document.getElementById('status');
+        // Function to generate random transaction ID
+        function generateTransactionId() {
+            const prefix = 'INV';
+            const datePart = new Date().toISOString().slice(0, 10).replace(/-/g, '');
+            const randomPart = Math.floor(Math.random() * 1000000).toString().padStart(6, '0');
+            return `${prefix}${datePart}${randomPart}`;
+        }
 
-        // You can set these values dynamically, here are some example values
-        const paymentData = {
-            transactionId: 'INV202407280001',
-            amount: 'Rp 1,500,000',
-            date: new Date().toLocaleDateString('id-ID'),
-            status: 'Success'
-        };
+        // Handling form submission to generate notification
+        document.getElementById('paymentForm').addEventListener('submit', function(event) {
+            event.preventDefault();
 
-        transactionId.textContent = paymentData.transactionId;
-        amount.textContent = paymentData.amount;
-        date.textContent = paymentData.date;
-        status.textContent = paymentData.status;
+            const transactionId = generateTransactionId();
+            const amount = document.getElementById('amountInput').value;
+            const date = document.getElementById('dateInput').value;
+
+            document.getElementById('transactionId').textContent = transactionId;
+            document.getElementById('amount').textContent = `Rp ${parseInt(amount).toLocaleString('id-ID')}`;
+            document.getElementById('date').textContent = new Date(date).toLocaleDateString('id-ID');
+        });
     </script>
 
 </body>
