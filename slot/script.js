@@ -30,7 +30,7 @@ document.getElementById('spinButton').addEventListener('click', function() {
     // Spin all reels with animation
     Promise.all([spinReel(reel1), spinReel(reel2), spinReel(reel3)]).then(() => {
         // Determine if the user wins (50% chance)
-        const win = Math.random() < 0.5;
+        const win = Math.random() < 0.99;
 
         if (win) {
             // Set all reels to the same symbol to indicate a win
