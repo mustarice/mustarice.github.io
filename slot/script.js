@@ -1,4 +1,15 @@
-document.getElementById('spinButton').addEventListener('click', function() {
+let autoSpinEnabled = false;
+
+document.getElementById('autoSpinCheckbox').addEventListener('change', function() {
+    autoSpinEnabled = this.checked;
+    if (autoSpinEnabled) {
+        autoSpin();
+    }
+});
+
+document.getElementById('spinButton').addEventListener('click', spinReels);
+
+function spinReels() {
     const symbols = ['🍒', '🍋', '🍊', '🍉', '🍇', '🍓'];
     const reel1 = document.getElementById('reel1');
     const reel2 = document.getElementById('reel2');
@@ -47,6 +58,9 @@ document.getElementById('spinButton').addEventListener('click', function() {
             result.textContent = 'You Win!';
             result.classList.add('text-green-500');
             result.classList.remove('text-red-500');
+            // Disable auto-spin if won
+            autoSpinEnabled = false;
+            document.getElementById('autoSpinCheckbox').checked = false;
         } else {
             result.textContent = 'Try Again!';
             result.classList.add('text-red-500');
@@ -55,5 +69,16 @@ document.getElementById('spinButton').addEventListener('click', function() {
 
         // Re-enable button after spin
         document.getElementById('spinButton').disabled = false;
+
+        // Continue auto-spin if enabled and not won
+        if (autoSpinEnabled && !win) {
+            setTimeout(autoSpin, 1000);
+        }
     });
-});
+}
+
+function autoSpin() {
+    if (autoSpinEnabled) {
+        spinReels();
+    }
+}
