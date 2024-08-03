@@ -6,38 +6,77 @@
   <title>Slot Machine</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
+    @keyframes spin {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-100%); }
+    }
+    .slot-container {
+      overflow: hidden;
+      height: 120px;
+      width: 120px;
+      border: 2px solid #2d3748;
+      border-radius: 10px;
+      margin: 1rem;
+      background-color: #edf2f7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
     .slot {
       font-size: 3rem;
+      font-weight: bold;
       text-align: center;
-      margin: 1rem;
-      border: 2px solid #000;
-      padding: 1rem;
-      border-radius: 10px;
-      width: 80px;
+      animation: spin linear infinite;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
   </style>
 </head>
 <body class="bg-gray-100 flex items-center justify-center h-screen">
 
-  <div class="bg-white p-6 rounded-lg shadow-lg text-center">
-    <h1 class="text-2xl font-bold mb-4">Slot Machine</h1>
-    <div class="flex justify-center mb-4">
-      <div id="slot1" class="slot">0</div>
-      <div id="slot2" class="slot">0</div>
-      <div id="slot3" class="slot">0</div>
+  <div class="bg-white p-10 rounded-lg shadow-2xl text-center max-w-lg">
+    <h1 class="text-4xl font-extrabold mb-8 text-gray-800">Slot Machine</h1>
+    <div class="flex justify-center mb-8">
+      <div class="slot-container">
+        <div id="slot1" class="slot">0</div>
+      </div>
+      <div class="slot-container">
+        <div id="slot2" class="slot">0</div>
+      </div>
+      <div class="slot-container">
+        <div id="slot3" class="slot">0</div>
+      </div>
     </div>
-    <button id="spinButton" class="bg-blue-500 text-white px-4 py-2 rounded">Spin</button>
+    <button id="spinButton" class="bg-blue-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-700 transition duration-300">Spin</button>
   </div>
 
   <script>
     const symbols = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
     const spinButton = document.getElementById('spinButton');
-    const slots = [document.getElementById('slot1'), document.getElementById('slot2'), document.getElementById('slot3')];
+    const slots = [
+      document.getElementById('slot1'),
+      document.getElementById('slot2'),
+      document.getElementById('slot3')
+    ];
+
+    function spinSlot(slot, duration) {
+      slot.style.animationDuration = `${duration}s`;
+      slot.style.animationName = 'spin';
+      slot.style.animationIterationCount = '1';
+
+      setTimeout(() => {
+        const randomSymbol = symbols[Math.floor(Math.random() * symbols.length)];
+        slot.style.animation = 'none';
+        slot.textContent = randomSymbol;
+      }, duration * 1000);
+    }
 
     spinButton.addEventListener('click', () => {
       slots.forEach(slot => {
-        const randomSymbol = symbols[Math.floor(Math.random() * symbols.length)];
-        slot.textContent = randomSymbol;
+        const randomDuration = Math.random() * 4 + 5; // random duration between 5 and 9 seconds
+        spinSlot(slot, randomDuration);
       });
     });
   </script>
