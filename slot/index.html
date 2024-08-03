@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slot Machine</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .reel {
+            height: 100px;
+            width: 100px;
+            border: 2px solid #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center h-screen bg-gray-200">
+    <div class="text-center">
+        <div class="flex justify-center mb-4">
+            <div class="reel" id="reel1">🍒</div>
+            <div class="reel" id="reel2">🍋</div>
+            <div class="reel" id="reel3">🍊</div>
+        </div>
+        <button id="spinButton" class="px-4 py-2 bg-blue-500 text-white rounded">Spin</button>
+        <p id="result" class="mt-4 text-xl"></p>
+    </div>
+
+    <script>
+        const symbols = ['🍒', '🍋', '🍊', '🍉', '🍇', '🍓'];
+        
+        function getRandomSymbol() {
+            return symbols[Math.floor(Math.random() * symbols.length)];
+        }
+
+        document.getElementById('spinButton').additionEventListener('click', () => {
+            const reel1 = getRandomSymbol();
+            const reel2 = getRandomSymbol();
+            const reel3 = getRandomSymbol();
+            
+            document.getElementById('reel1').innerText = reel1;
+            document.getElementById('reel2').innerText = reel2;
+            document.getElementById('reel3').innerText = reel3;
+
+            const result = (reel1 === reel2 && reel2 === reel3) ? 'You Win!' : 'Try Again!';
+            document.getElementById('result').innerText = result;
+        });
+    </script>
+</body>
+</html>
