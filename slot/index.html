@@ -64,12 +64,14 @@
       document.getElementById('slot3')
     ];
     const resultMessage = document.getElementById('resultMessage');
+    let spinningCount = 0;
 
     function randomSymbol() {
       return symbols[Math.floor(Math.random() * symbols.length)];
     }
 
     function spinSlot(slot, duration) {
+      spinningCount++;
       const interval = setInterval(() => {
         slot.textContent = randomSymbol();
       }, 100);
@@ -79,7 +81,10 @@
         const finalSymbol = randomSymbol();
         slot.textContent = finalSymbol;
         slot.dataset.finalSymbol = finalSymbol;
-        checkWin();
+        spinningCount--;
+        if (spinningCount === 0) {
+          checkWin();
+        }
       }, duration * 1000);
     }
 
