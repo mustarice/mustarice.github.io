@@ -6,48 +6,40 @@
     <title>Slot Machine</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
-        .reel {
-            height: 100px;
-            width: 100px;
-            border: 2px solid #000;
+        .slot-machine {
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f3f4f6;
+        }
+        .reel {
+            width: 100px;
+            height: 100px;
+            border: 2px solid #000;
+            margin: 0 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             font-size: 2rem;
-            margin: 10px;
+            font-weight: bold;
+            background-color: #fff;
         }
     </style>
 </head>
-<body class="flex items-center justify-center h-screen bg-gray-200">
-    <div class="text-center">
-        <div class="flex justify-center mb-4">
-            <div class="reel" id="reel1">🍒</div>
-            <div class="reel" id="reel2">🍋</div>
-            <div class="reel" id="reel3">🍊</div>
-        </div>
-        <button id="spinButton" class="px-4 py-2 bg-blue-500 text-white rounded">Spin</button>
-        <p id="result" class="mt-4 text-xl"></p>
+<body>
+    <div class="slot-machine">
+        <div id="reel1" class="reel">🍒</div>
+        <div id="reel2" class="reel">🍋</div>
+        <div id="reel3" class="reel">🍊</div>
     </div>
+    <div class="text-center mt-4">
+        <button id="spinButton" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            Spin
+        </button>
+    </div>
+    <div id="result" class="text-center mt-4 text-2xl font-bold"></div>
 
-    <script>
-        const symbols = ['🍒', '🍋', '🍊', '🍉', '🍇', '🍓'];
-        
-        function getRandomSymbol() {
-            return symbols[Math.floor(Math.random() * symbols.length)];
-        }
-
-        document.getElementById('spinButton').additionEventListener('click', () => {
-            const reel1 = getRandomSymbol();
-            const reel2 = getRandomSymbol();
-            const reel3 = getRandomSymbol();
-            
-            document.getElementById('reel1').innerText = reel1;
-            document.getElementById('reel2').innerText = reel2;
-            document.getElementById('reel3').innerText = reel3;
-
-            const result = (reel1 === reel2 && reel2 === reel3) ? 'You Win!' : 'Try Again!';
-            document.getElementById('result').innerText = result;
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
