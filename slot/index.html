@@ -11,7 +11,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-image: linear-gradient(to right, #f953c6, #b91d73);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
         .reel-container {
             display: flex;
@@ -44,17 +44,16 @@
 </head>
 <body>
     <div class="slot-machine flex flex-col justify-center items-center">
+        <h1 class="text-white text-4xl font-bold mb-8">Slot Machine</h1>
         <div class="reel-container">
             <div id="reel1" class="reel">🍒</div>
             <div id="reel2" class="reel">🍋</div>
             <div id="reel3" class="reel">🍊</div>
         </div>
-        <div class="mt-4">
-            <button id="spinButton" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-full">
+        <div class="mt-8 flex flex-col items-center">
+            <button id="spinButton" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-full mb-4">
                 Spin
             </button>
-        </div>
-        <div class="mt-4">
             <label class="text-white font-bold">
                 <input type="checkbox" id="autoSpinCheckbox" class="mr-2"> Enable Auto-Spin
             </label>
