@@ -26,11 +26,13 @@
       font-size: 3rem;
       font-weight: bold;
       text-align: center;
-      animation: spin linear infinite;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+    }
+    .winning {
+      border-color: #38a169;
     }
   </style>
 </head>
@@ -50,6 +52,7 @@
       </div>
     </div>
     <button id="spinButton" class="bg-blue-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-700 transition duration-300">Spin</button>
+    <p id="resultMessage" class="mt-4 text-xl font-bold"></p>
   </div>
 
   <script>
@@ -60,20 +63,40 @@
       document.getElementById('slot2'),
       document.getElementById('slot3')
     ];
+    const resultMessage = document.getElementById('resultMessage');
+
+    function randomSymbol() {
+      return symbols[Math.floor(Math.random() * symbols.length)];
+    }
 
     function spinSlot(slot, duration) {
-      slot.style.animationDuration = `${duration}s`;
-      slot.style.animationName = 'spin';
-      slot.style.animationIterationCount = '1';
+      const interval = setInterval(() => {
+        slot.textContent = randomSymbol();
+      }, 100);
 
       setTimeout(() => {
-        const randomSymbol = symbols[Math.floor(Math.random() * symbols.length)];
-        slot.style.animation = 'none';
-        slot.textContent = randomSymbol;
+        clearInterval(interval);
+        const finalSymbol = randomSymbol();
+        slot.textContent = finalSymbol;
+        slot.dataset.finalSymbol = finalSymbol;
+        checkWin();
       }, duration * 1000);
     }
 
+    function checkWin() {
+      const finalSymbols = slots.map(slot => slot.dataset.finalSymbol);
+      if (finalSymbols.every((symbol, _, arr) => symbol === arr[0])) {
+        resultMessage.textContent = "You Win!";
+        slots.forEach(slot => slot.parentNode.classList.add('winning'));
+      } else {
+        resultMessage.textContent = "Try Again!";
+        slots.forEach(slot => slot.parentNode.classList.remove('winning'));
+      }
+    }
+
     spinButton.addEventListener('click', () => {
+      resultMessage.textContent = "";
+      slots.forEach(slot => slot.parentNode.classList.remove('winning'));
       slots.forEach(slot => {
         const randomDuration = Math.random() * 4 + 5; // random duration between 5 and 9 seconds
         spinSlot(slot, randomDuration);
