@@ -13,14 +13,16 @@ document.getElementById('spinButton').addEventListener('click', function() {
     const randomSymbol = () => symbols[Math.floor(Math.random() * symbols.length)];
     
     // Function to simulate spin animation
-    const spinReel = (reel) => {
+    const spinReel = (reel, duration) => {
         return new Promise(resolve => {
+            reel.classList.add('spin');
             let count = 0;
             const interval = setInterval(() => {
                 reel.textContent = randomSymbol();
                 count++;
-                if (count >= 20) { // Number of spins
+                if (count >= duration / 100) { // Duration control
                     clearInterval(interval);
+                    reel.classList.remove('spin');
                     resolve();
                 }
             }, 100); // Speed of spin
@@ -28,9 +30,13 @@ document.getElementById('spinButton').addEventListener('click', function() {
     };
 
     // Spin all reels with animation
-    Promise.all([spinReel(reel1), spinReel(reel2), spinReel(reel3)]).then(() => {
+    Promise.all([
+        spinReel(reel1, 2000),
+        spinReel(reel2, 2500),
+        spinReel(reel3, 3000)
+    ]).then(() => {
         // Determine if the user wins (50% chance)
-        const win = Math.random() < 0.99;
+        const win = Math.random() < 0.5;
 
         if (win) {
             // Set all reels to the same symbol to indicate a win
