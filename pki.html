@@ -1,249 +1,106 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Netshop.id - Toko Online Digital</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #292929;
-            color: #fff;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* Navigasi Menu */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #000;
-            padding: 10px 20px;
-        }
-
-        nav .logo {
-            font-size: 1.5em;
-            font-weight: bold;
-            color: #fff;
-        }
-
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        nav a:hover {
-            background-color: #fff;
-            color: #292929;
-        }
-
-        /* Banner Promosi */
-        .banner {
-            background-color: #000;
-            padding: 80px 20px;
-            text-align: center;
-        }
-
-        .banner h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
-        }
-
-        .banner p {
-            font-size: 1.2em;
-        }
-
-        /* Daftar Produk */
-        .products {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .product {
-            background-color: #1c1c1c;
-            border: 1px solid #fff;
-            border-radius: 10px;
-            margin: 15px;
-            width: 280px;
-            text-align: center;
-            padding: 20px;
-            transition: transform 0.3s;
-        }
-
-        .product:hover {
-            transform: scale(1.05);
-        }
-
-        .product img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
-
-        .product h2 {
-            font-size: 1.5em;
-            margin: 10px 0;
-        }
-
-        .product p {
-            font-size: 1em;
-            margin: 10px 0;
-        }
-
-        .product button {
-            background-color: #fff;
-            border: none;
-            color: #292929;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        .product button:hover {
-            background-color: #292929;
-            color: #fff;
-        }
-
-        /* Formulir Kontak */
-        .contact {
-            background-color: #000;
-            padding: 40px 20px;
-            text-align: center;
-        }
-
-        .contact h2 {
-            font-size: 2em;
-            margin-bottom: 20px;
-        }
-
-        .contact form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .contact input, .contact textarea {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border: 1px solid #fff;
-            border-radius: 5px;
-            background-color: #292929;
-            color: #fff;
-        }
-
-        .contact button {
-            background-color: #fff;
-            border: none;
-            color: #292929;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        .contact button:hover {
-            background-color: #292929;
-            color: #fff;
-        }
-
-        /* Ikon Media Sosial */
-        .social-media {
-            background-color: #292929;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .social-media a {
-            color: #fff;
-            margin: 0 10px;
-            text-decoration: none;
-            font-size: 1.5em;
-            transition: color 0.3s;
-        }
-
-        .social-media a:hover {
-            color: #fff;
-        }
-
-        /* Footer */
-        footer {
-            background-color: #000;
-            padding: 20px;
-            text-align: center;
-            color: #fff;
-        }
-
-        @media (max-width: 768px) {
-            .product {
-                width: 100%;
-            }
-        }
-    </style>
+    <title>netshop.id</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <nav>
-        <div class="logo">Netshop.id</div>
-        <div>
-            <a href="#home">Home</a>
-            <a href="#products">Products</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </nav>
 
-    <div class="banner" id="home">
-        <h1>Selamat Datang di Netshop.id</h1>
-        <p>Toko online digital Anda untuk berbagai produk premium!</p>
-    </div>
+<body class="bg-[#292929] text-white font-sans">
+    <!-- Header Section -->
+    <header class="bg-[#292929] py-6 shadow-md">
+        <div class="container mx-auto flex justify-between items-center px-6">
+            <h1 class="text-3xl font-bold">netshop.id</h1>
+            <nav>
+                <a href="#features" class="text-white px-3 py-2 rounded-md hover:bg-gray-700">Features</a>
+                <a href="#products" class="text-white px-3 py-2 rounded-md hover:bg-gray-700">Products</a>
+                <a href="#contact" class="text-white px-3 py-2 rounded-md hover:bg-gray-700">Contact</a>
+            </nav>
+        </div>
+    </header>
 
-    <section class="products" id="products">
-        <div class="product">
-            <img src="https://via.placeholder.com/280x200/292929/FFFFFF?text=Product+1" alt="Product 1">
-            <h2>Produk 1</h2>
-            <p>Deskripsi singkat produk.</p>
-            <button>Beli Sekarang</button>
-        </div>
-        <div class="product">
-            <img src="https://via.placeholder.com/280x200/292929/FFFFFF?text=Product+2" alt="Product 2">
-            <h2>Produk 2</h2>
-            <p>Deskripsi singkat produk.</p>
-            <button>Beli Sekarang</button>
-        </div>
-        <div class="product">
-            <img src="https://via.placeholder.com/280x200/292929/FFFFFF?text=Product+3" alt="Product 3">
-            <h2>Produk 3</h2>
-            <p>Deskripsi singkat produk.</p>
-            <button>Beli Sekarang</button>
+    <!-- Hero Section -->
+    <section class="bg-[#292929] py-20 text-center">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl font-bold mb-4">Welcome to netshop.id</h2>
+            <p class="text-xl mb-8">Your go-to online digital store for premium products.</p>
+            <a href="#products" class="bg-blue-500 text-white px-6 py-3 rounded-md hover:bg-blue-700">Shop Now</a>
         </div>
     </section>
 
-    <section class="contact" id="contact">
-        <h2>Hubungi Kami</h2>
-        <form>
-            <input type="text" name="name" placeholder="Nama Anda" required>
-            <input type="email" name="email" placeholder="Email Anda" required>
-            <textarea name="message" placeholder="Pesan Anda" required></textarea>
-            <button type="submit">Kirim</button>
-        </form>
+    <!-- Features Section -->
+    <section id="features" class="py-16 bg-gray-800">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12">Why Choose Us?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="bg-[#292929] p-8 rounded-md hover:bg-gray-700">
+                    <h3 class="text-2xl font-semibold mb-4">Quality Products</h3>
+                    <p>We offer only the best digital products in the market.</p>
+                </div>
+                <div class="bg-[#292929] p-8 rounded-md hover:bg-gray-700">
+                    <h3 class="text-2xl font-semibold mb-4">Fast Delivery</h3>
+                    <p>Instant digital delivery, get your products within minutes.</p>
+                </div>
+                <div class="bg-[#292929] p-8 rounded-md hover:bg-gray-700">
+                    <h3 class="text-2xl font-semibold mb-4">24/7 Support</h3>
+                    <p>We're here to help anytime you need assistance.</p>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <div class="social-media">
-        <a href="#" target="_blank">Facebook</a>
-        <a href="#" target="_blank">Instagram</a>
-        <a href="#" target="_blank">Twitter</a>
-    </div>
+    <!-- Products Section -->
+    <section id="products" class="py-16 bg-[#292929]">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12">Our Products</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <!-- Sample Product -->
+                <div class="bg-gray-800 p-8 rounded-md hover:bg-gray-700">
+                    <h3 class="text-2xl font-semibold mb-4">Product 1</h3>
+                    <p class="mb-4">A brief description of the product goes here.</p>
+                    <a href="#" class="bg-blue-500 text-white px-6 py-3 rounded-md hover:bg-blue-700">Buy Now</a>
+                </div>
+                <!-- Add more products as needed -->
+            </div>
+        </div>
+    </section>
 
-    <footer>
-        <p>&copy; 2024 Netshop.id. All rights reserved.</p>
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-800">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12">Get in Touch</h2>
+            <form class="max-w-xl mx-auto bg-[#292929] p-8 rounded-md">
+                <div class="mb-4">
+                    <label for="name" class="block text-sm font-medium">Name</label>
+                    <input type="text" id="name" name="name" class="w-full mt-1 p-2 bg-gray-800 rounded-md border-none focus:outline-none" required>
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block text-sm font-medium">Email</label>
+                    <input type="email" id="email" name="email" class="w-full mt-1 p-2 bg-gray-800 rounded-md border-none focus:outline-none" required>
+                </div>
+                <div class="mb-4">
+                    <label for="message" class="block text-sm font-medium">Message</label>
+                    <textarea id="message" name="message" class="w-full mt-1 p-2 bg-gray-800 rounded-md border-none focus:outline-none" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="bg-blue-500 text-white px-6 py-3 rounded-md hover:bg-blue-700">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-[#292929] py-6 text-center">
+        <p>&copy; 2024 netshop.id. All Rights Reserved.</p>
     </footer>
+
+    <!-- Optional JS for interactivity -->
+    <script>
+        document.querySelector('form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert('Message sent! We will get back to you soon.');
+        });
+    </script>
 </body>
+
 </html>
